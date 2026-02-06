@@ -29,7 +29,7 @@
    }
 
    main {
-     @apply pt-16 grow max-w-6xl mx-auto
+     @apply pt-16 grow max-w-5xl mx-auto w-full
    }
 
    h1 {
@@ -58,8 +58,8 @@
      @apply text-sm text-gray-500
    }
 
-   .label {
-     @apply text-sm text-blue-400 tracking-widest uppercase
+   .hero-label {
+     @apply text-sm text-blue-400 tracking-widest uppercase mb-6
    }
 
  }

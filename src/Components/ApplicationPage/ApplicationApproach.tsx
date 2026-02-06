@@ -1,7 +1,8 @@
 // components/ApplicationApproach.tsx
 import { MessageSquare, Code, GitBranch, Users } from "lucide-react";
 import Section from "../UI/Section";
-
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 export default function ApplicationApproach() {
   const points = [
     {
@@ -27,14 +28,12 @@ export default function ApplicationApproach() {
   ];
 
   return (
-    <Section className="px-6 py-20">
-      < div className="max-w-3xl mx-auto" >
+    <Section>
+      < Container size="md" >
 
-        <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-          Comment je travaille
-        </h2>
+        <SectionHeader title="Comment je travaille" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-auto">
           {points.map((point, index) => (
             <div key={index} className="flex gap-4">
               <div className="p-2 rounded-lg bg-blue-500/10 text-blue-400 h-fit">
@@ -52,7 +51,7 @@ export default function ApplicationApproach() {
           ))}
         </div>
 
-      </div >
+      </Container>
     </Section>
   );
 }

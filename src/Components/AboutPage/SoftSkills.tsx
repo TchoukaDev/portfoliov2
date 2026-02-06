@@ -1,6 +1,8 @@
 // components/a-propos/Apports.tsx
 import { Ear, CheckCircle, BookOpen, Shield } from "lucide-react";
+import Container from "../UI/Container";
 import Section from "../UI/Section";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function SoftSkills() {
     const apports = [
@@ -28,16 +30,9 @@ export default function SoftSkills() {
 
     return (
         <Section className="px-6 py-20 bg-gray-900/30">
-            < div className="max-w-3xl mx-auto" >
+            < Container size="md" >
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
-                    {/* eslint-disable-next-line */}
-                    Ce que j'apporte de mon ancien métier
-                </h2>
-
-                <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
-                    Des qualités développées sur le terrain, que je mets au service de mes clients.
-                </p>
+                <SectionHeader title="Ce que j'apporte de mon ancien métier" subtitle="Des qualités développées sur le terrain, que je mets au service de mes clients." />
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {apports.map((apport, index) => (
@@ -57,7 +52,7 @@ export default function SoftSkills() {
                     ))}
                 </div>
 
-            </div >
+            </Container >
         </Section>
     );
 }

@@ -1,14 +1,14 @@
 // components/a-propos/PourquoiDev.tsx
+import Container from "../UI/Container";
 import Section from "../UI/Section";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function WhyDev() {
     return (
         <Section className="px-6 py-20">
-            < div className="max-w-2xl mx-auto" >
+            < Container size="sm" >
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
-                    Pourquoi ce métier ?
-                </h2>
+                <SectionHeader title="Pourquoi ce métier ?" />
 
                 <div className="space-y-6 text-gray-300">
                     <p>
@@ -31,7 +31,7 @@ export default function WhyDev() {
                     </p>
                 </div>
 
-            </div >
+            </Container >
         </Section>
     );
 }

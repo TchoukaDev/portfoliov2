@@ -2,6 +2,7 @@
 // components/Hero.tsx
 
 import Button from "../UI/Button";
+import SectionDivider from "../UI/SectionDivider";
 
 // components/Hero.tsx
 export default function Hero() {
@@ -12,7 +13,7 @@ export default function Hero() {
             <div className="absolute top-16 w-72 h-36 md:w-96 md:h-48 bg-blue-600/20 blur-3xl rounded-full" />
 
             {/* Contenu - "relative" pour être au-dessus du halo */}
-            <p className="relative text-blue-400 text-sm tracking-widest uppercase mb-4">
+            <p className="hero-label">
                 Romain Wirth
             </p>
 
@@ -46,7 +47,7 @@ export default function Hero() {
             >
                 Découvrir mes services ↓
             </Button>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
+            <SectionDivider />
         </header>
     );
 }

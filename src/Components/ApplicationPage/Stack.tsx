@@ -4,7 +4,6 @@ import {
     SiNextdotjs,
     SiTypescript,
     SiTailwindcss,
-    SiNodedotjs,
     SiPostgresql,
     SiMongodb,
     SiFirebase,
@@ -13,6 +12,8 @@ import {
     SiVercel
 } from "react-icons/si";
 import Section from "../UI/Section";
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function Stack() {
     const stacks = [
@@ -44,14 +45,12 @@ export default function Stack() {
     ];
 
     return (
-        <Section alternate className="px-6 py-20">
-            < div className="max-w-4xl mx-auto" >
+        <Section alternate className="max-w-4xl mx-auto">
+            <Container size="md">
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-                    Technologies utilisées
-                </h2>
+                <SectionHeader title="Technologies utilisées" />
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
                     {stacks.map((stack, index) => (
                         <div key={index}>
                             <h3 className="text-sm text-gray-500 uppercase tracking-wider mb-4">
@@ -72,7 +71,7 @@ export default function Stack() {
                     ))}
                 </div>
 
-            </div >
+            </Container>
         </Section>
     );
 }

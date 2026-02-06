@@ -1,10 +1,11 @@
 // components/a-propos/HeroAbout.tsx
 import Image from "next/image";
+import Container from "../UI/Container";
 
 export default function HeroAbout() {
     return (
         <header className="relative px-6 py-20">
-            <div className="max-w-3xl mx-auto text-center">
+            <Container size="md" className="text-center">
 
                 {/* Photo */}
                 <div className="relative w-40 h-40 mx-auto mb-8">
@@ -30,8 +31,8 @@ export default function HeroAbout() {
                 <p className="text-gray-400">
                     Ancien cadre de santé en reconversion
                 </p>
-                <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
-            </div>
+
+            </Container>
         </header>
     );
 }

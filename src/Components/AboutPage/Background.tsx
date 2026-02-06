@@ -1,22 +1,20 @@
 // components/a-propos/Parcours.tsx
+import Container from "../UI/Container";
 import Section from "../UI/Section";
+import SectionHeader from "../UI/SectionHeader";
 
 
 export default function Background() {
   return (
-    <Section className="px-6 py-20 bg-gray-900/30">
-      < div className="max-w-2xl mx-auto" >
+    <Section alternate className="max-w-4xl mx-auto">
+      < Container size="sm" >
 
-        <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-10">
-          Mon parcours
-        </h2>
+        <SectionHeader title="Mon parcours" />
 
         <div className="space-y-6 text-gray-300">
-          <p>4
+          <p>
             {/* eslint-disable-next-line */}
-            Pendant plusieurs années, j'ai été cadre de santé en milieu hospitalier.
-            {/* eslint-disable-next-line */}
-            Un métier exigeant, où j'ai appris à écouter, organiser,
+            Pendant plusieurs années, j'ai été cadre de santé en milieu hospitalier. Un métier exigeant, où j'ai appris à écouter, organiser,
             et accompagner des équipes au quotidien.
           </p>
 
@@ -36,7 +34,7 @@ export default function Background() {
           </p>
         </div>
 
-      </div >
+      </Container >
     </Section>
   );
 }

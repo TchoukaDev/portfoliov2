@@ -8,11 +8,13 @@ import AboutCTA from "@/Components/AboutPage/AboutCTA";
 export default function AProposPage() {
     return (
         <main>
+
             <HeroAbout />
             <Background />
             <WhyDev />
             <SoftSkills />
             <AboutCTA />
+
         </main>
     );
 }

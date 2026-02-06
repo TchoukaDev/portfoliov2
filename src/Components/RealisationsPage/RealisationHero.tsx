@@ -1,4 +1,6 @@
 // components/realisations/HeroRealisations.tsx
+import SectionDivider from "../UI/SectionDivider";
+
 export default function RealisationHero() {
     return (
         <header className="relative px-6 py-20 text-center">
@@ -12,7 +14,7 @@ export default function RealisationHero() {
                 {/* eslint-disable-next-line */}
                 découvrez les projets que j'ai réalisés.
             </p>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
+            <SectionDivider />
         </header>
     );
 }

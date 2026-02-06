@@ -4,6 +4,8 @@ import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Section from "../UI/Section";
 import SectionDivider from "../UI/SectionDivider";
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function ApplicationRealisations() {
     const projets = [
@@ -31,16 +33,10 @@ export default function ApplicationRealisations() {
     ];
 
     return (
-        <Section className="px-6 py-20">
-            < div className="max-w-5xl mx-auto" >
+        <Section>
+            <Container size="lg">
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
-                    Projets réalisés
-                </h2>
-
-                <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
-                    Des applications complètes, développées de A à Z.
-                </p>
+                <SectionHeader title="Projets réalisés" subtitle="Des applications complètes, développées de A à Z." />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {projets.map((projet, index) => (
@@ -91,7 +87,7 @@ export default function ApplicationRealisations() {
                     </Link>
                 </div>
 
-            </div >
+            </Container>
             <SectionDivider />
         </Section>
     );

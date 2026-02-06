@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import SectionDivider from "../UI/SectionDivider";
 import Section from "../UI/Section";
+import Container from "../UI/Container";
 
 type Project = {
     id: number;
@@ -82,8 +83,8 @@ export default function ProjectsGrid() {
     ];
 
     return (
-        <Section className="px-6 py-10">
-            < div className="max-w-5xl mx-auto" >
+        <Section >
+            <Container size="lg">
 
                 {/* Filtres */}
                 < div className="flex justify-center gap-4 mb-12" >
@@ -158,7 +159,7 @@ export default function ProjectsGrid() {
                     )
                 }
 
-            </div >
+            </Container >
             <SectionDivider />
         </Section>
     );

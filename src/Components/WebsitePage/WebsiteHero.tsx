@@ -1,5 +1,6 @@
 // components/WebsiteHero.tsx
 import Link from "next/link";
+import SectionDivider from "../UI/SectionDivider";
 
 export default function WebsiteHero() {
     return (
@@ -10,7 +11,7 @@ export default function WebsiteHero() {
             <div className="absolute top-16 w-60 h-28 bg-blue-600/10 blur-3xl rounded-full" />
 
             {/* Badge */}
-            <span className="text-blue-400 text-sm tracking-widest uppercase mb-6">
+            <span className="hero-label">
                 Sites web
             </span>
 
@@ -32,7 +33,7 @@ export default function WebsiteHero() {
             >
                 Demander un devis gratuit
             </Link>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-blue-500/30 to-transparent" />
+            <SectionDivider />
         </header>
     );
 }

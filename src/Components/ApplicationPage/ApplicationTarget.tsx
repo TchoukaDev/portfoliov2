@@ -1,6 +1,8 @@
 // components/ApplicationTarget.tsx
 import { Check } from "lucide-react";
 import Section from "../UI/Section";
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function ApplicationTarget() {
     const points = [
@@ -12,12 +14,10 @@ export default function ApplicationTarget() {
     ];
 
     return (
-        <Section className="px-6 py-20">
-            < div className="max-w-3xl mx-auto" >
+        <Section>
+            <Container size="sm">
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
-                    Ce service est pour vous si...
-                </h2>
+                <SectionHeader title="Ce service est pour vous si..." />
 
                 <ul className="space-y-4">
                     {points.map((point, index) => (
@@ -33,7 +33,7 @@ export default function ApplicationTarget() {
                     ))}
                 </ul>
 
-            </div >
+            </Container>
         </Section>
     );
 }

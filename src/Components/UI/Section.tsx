@@ -9,7 +9,7 @@ export default function Section({ children, alternate = false, className = "", .
     return (
         <section {...props} className={`
       px-6 py-20 rounded relative
-      ${alternate ? "bg-gray-900/30 shadow-sm shadow-gray-900" : ""}
+      ${alternate ? "bg-gray-900/30" : ""}
       ${className}
     `}>
             {children}

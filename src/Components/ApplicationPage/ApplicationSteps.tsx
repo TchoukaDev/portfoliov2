@@ -1,6 +1,8 @@
 // components/application/TypesProjets.tsx
 import { Monitor, Rocket, Layers } from "lucide-react";
 import Section from "../UI/Section";
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function ApplicationSteps() {
     const projets = [
@@ -22,16 +24,10 @@ export default function ApplicationSteps() {
     ];
 
     return (
-        <Section alternate className="px-6 py-20">
-            < div className="max-w-5xl mx-auto" >
+        <Section alternate>
+            <Container size="lg">
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
-                    Ce que je développe
-                </h2>
-
-                <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
-                    Des projets variés, une approche sur mesure.
-                </p>
+                <SectionHeader title="Ce que je développe" subtitle="Des projets variés, une approche sur mesure." />
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {projets.map((projet, index) => (
@@ -54,7 +50,7 @@ export default function ApplicationSteps() {
                     ))}
                 </div>
 
-            </div >
+            </Container>
 
         </Section>
     );

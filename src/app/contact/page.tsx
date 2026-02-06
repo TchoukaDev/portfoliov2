@@ -1,10 +1,11 @@
 // app/contact/page.tsx
-// import ContactForm from "@/components/ContactForm/ContactForm";
+import Container from "@/Components/UI/Container";
+
 
 export default function ContactPage() {
     return (
         <main className="px-6 py-20">
-            <div className="max-w-2xl mx-auto">
+            <Container size="md">
 
                 {/* Hero */}
                 <div className="text-center mb-12">
@@ -29,7 +30,7 @@ export default function ContactPage() {
                     </p>
                 </div>
 
-            </div>
+            </Container>
         </main>
     );
 }
