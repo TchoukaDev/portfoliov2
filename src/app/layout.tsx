@@ -5,9 +5,33 @@ import localFont from "next/font/local";
 import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/Components/Navbar/Navbar";
-import Container from "@/Components/UI/Container";
 import Footer from "@/Components/Footer/Footer";
 
+export const dmSans = localFont({
+  src: [
+    {
+      path: "./fonts/DMSans-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./fonts/DMSans-Bold.woff2",
+      weight: "700",
+      style: "normal",
+    }, {
+      path: "./fonts/DMSans-Italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "./fonts/DMSans-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--font-dm-sans",
+});
 const raleway = localFont({
   src: [
     {
@@ -25,22 +49,7 @@ const raleway = localFont({
   variable: "--font-raleway",
 });
 
-const playfair = localFont({
-  src: [
-    {
-      path: "./fonts/PlayfairDisplay-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/PlayfairDisplay-Italic.woff2",
-      weight: "400",
-      style: "italic",
-    },
-  ],
-  display: "swap",
-  variable: "--font-playfair",
-});
+
 export const metadata: Metadata = {
   title: {
     default: "Romain WIRTH | Développeur Web",
@@ -98,7 +107,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${raleway.variable} ${playfair.variable}`}>
+    <html lang="fr" className={`${raleway.variable} ${dmSans.variable}`}>
       <body className="relative flex flex-col justify-center font-raleway min-h-screen cursor-default">
 
         <Navbar />
