@@ -137,7 +137,7 @@ export default function ProjectsGrid() {
                                         />
                                     </div>
 
-                                    <p className="text-gray-400 text-sm mb-4">
+                                    <p className="text-gray-300 text-sm mb-4">
                                         {project.description}
                                     </p>
 

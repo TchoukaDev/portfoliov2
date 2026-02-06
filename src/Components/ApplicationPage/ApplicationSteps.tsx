@@ -3,6 +3,7 @@ import { Monitor, Rocket, Layers } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
+import Card from "../UI/Card";
 
 export default function ApplicationSteps() {
     const projets = [
@@ -31,9 +32,8 @@ export default function ApplicationSteps() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {projets.map((projet, index) => (
-                        <div
+                        <Card hover={false}
                             key={index}
-                            className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50"
                         >
                             <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit mb-6">
                                 {projet.icon}
@@ -46,7 +46,7 @@ export default function ApplicationSteps() {
                             <p className="text-gray-400 text-sm">
                                 {projet.description}
                             </p>
-                        </div>
+                        </Card>
                     ))}
                 </div>
 

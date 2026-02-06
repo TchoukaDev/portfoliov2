@@ -39,7 +39,7 @@ export default function WebsiteRealisations() {
                             href={projet.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group block rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-500/50 transition-colors"
+                            className="group block rounded-2xl border border-gray-700 overflow-hidden hover:border-blue-500/50 transition-colors"
                         >
                             {/* Image */}
                             <div className="relative h-48 bg-gray-800">

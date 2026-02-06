@@ -1,6 +1,7 @@
 // components/site-web/Services.tsx
 import { Globe, RefreshCcw, HeartHandshake } from "lucide-react";
 import Section from "../UI/Section";
+import Card from "../UI/Card";
 
 export default function WebsiteServices() {
   const services = [
@@ -35,9 +36,8 @@ export default function WebsiteServices() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <div
+            <Card hover={false}
               key={index}
-              className="p-8 rounded-2xl border border-gray-800 bg-gray-900/50"
             >
               <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit mb-6">
                 {service.icon}
@@ -50,7 +50,7 @@ export default function WebsiteServices() {
               <p className="text-gray-400 text-sm">
                 {service.description}
               </p>
-            </div>
+            </Card>
           ))}
         </div>
 
