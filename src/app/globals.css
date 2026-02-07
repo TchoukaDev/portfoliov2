@@ -53,6 +53,10 @@
  }
 
  @layer components {
+   .input {
+     @apply w-full max-w-full sm:w-[450px] border text-gray-300 font-semibold border-gray-800 rounded-xl px-4 pt-5 md:pt-7 pb-2 bg-gray-900/50 placeholder-transparent outline-blue-500
+   }
+
    .smallText {
      @apply text-sm text-gray-500
    }
@@ -61,6 +65,25 @@
      @apply text-sm text-blue-400 tracking-widest uppercase mb-6
    }
 
+   .formError {
+     @apply text-red-500 text-center my-1 text-sm
+   }
+
+   .formSuccess {
+     @apply !text-blue-500 my-1 text-center
+   }
+ }
+
+ /* Neutraliser le comportement d'autofill */
+ input:-webkit-autofill,
+ input:-webkit-autofill:focus {
+   transition:
+     background-color 600000s 0s,
+     color 600000s 0s;
+ }
+
+ input[data-autocompleted] {
+   background-color: transparent !important;
  }
 
  .gradient-xy {

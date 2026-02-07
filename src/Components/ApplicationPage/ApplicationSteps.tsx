@@ -35,7 +35,7 @@ export default function ApplicationSteps() {
                         <Card hover={false}
                             key={index}
                         >
-                            <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit mb-6">
+                            <div className="p-3 rounded-xl bg-blue-500/20 text-blue-400 w-fit mb-6">
                                 {projet.icon}
                             </div>
 

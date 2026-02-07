@@ -53,9 +53,9 @@ export default function Navbar() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`text-sm transition-colors ${isActive(link.href)
-                                    ? "text-blue-400"
-                                    : "text-gray-400 hover:text-white"
+                                className={`text-sm transition-all duration-300  border-b-2  ${isActive(link.href)
+                                    ? "text-blue-400  border-blue-500"
+                                    : "text-gray-400 hover:text-white border-transparent"
                                     }`}
                             >
                                 {link.label}
@@ -64,7 +64,7 @@ export default function Navbar() {
                         <Link
                             href="/contact"
                             className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
-                                ? "bg-blue-500 text-white"
+                                ? "bg-blue-500 text-white border border-gray-300"
                                 : "bg-blue-600 hover:bg-blue-500 text-white"
                                 }`}
                         >
@@ -102,9 +102,9 @@ export default function Navbar() {
                             key={link.href}
                             href={link.href}
                             onClick={handleLinkClick}
-                            className={`block transition-colors ${isActive(link.href)
-                                ? "text-blue-400"
-                                : "text-gray-400 hover:text-white"
+                            className={`block transition-all duration-300 border-b-2 ${isActive(link.href)
+                                ? "text-blue-400 border-blue-500"
+                                : "text-gray-400 hover:text-white border-transparent"
                                 }`}
                         >
                             {link.label}
@@ -115,7 +115,7 @@ export default function Navbar() {
                         onClick={handleLinkClick}
                         className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
                             ? "bg-blue-500 text-white"
-                            : "bg-blue-600 hover:bg-blue-500 text-white"
+                            : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
                             }`}
                     >
                         Contact

@@ -15,7 +15,7 @@ export default function Button({
     className = "",
     ...props
 }: ButtonProps) {
-    const baseStyles = "inline-block px-8 py-4 font-medium rounded-xl transition-colors text-center";
+    const baseStyles = "inline-block px-8 py-4 font-medium rounded-xl transition-colors text-center cursor-pointer";
 
     const variants = {
         primary: "bg-blue-600 hover:bg-blue-500 text-white",

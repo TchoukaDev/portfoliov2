@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Globe, Code } from "lucide-react";
 import SectionDivider from "../UI/SectionDivider";
 import Section from "../UI/Section";
-import Card from "../UI/Card";
 import SectionHeader from "../UI/SectionHeader";
 import Container from "../UI/Container";
+import HoveredCard from "../UI/HoveredCard";
 
 export default function Services() {
     return (
@@ -17,7 +17,7 @@ export default function Services() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
 
                     {/* Carte Site Web */}
-                    <Card hover>
+                    <HoveredCard>
                         <Link href="/site-web">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
@@ -43,10 +43,10 @@ export default function Services() {
                                 En savoir plus →
                             </span>
                         </Link>
-                    </Card>
+                    </HoveredCard>
 
                     {/* Carte Application */}
-                    <Card hover>
+                    <HoveredCard>
                         <Link href="/application">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
@@ -72,7 +72,7 @@ export default function Services() {
                                 En savoir plus →
                             </span>
                         </Link>
-                    </Card>
+                    </HoveredCard>
 
                 </div>
                 <SectionDivider />
