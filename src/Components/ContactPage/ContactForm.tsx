@@ -10,22 +10,25 @@ import { sendMail } from "@/actions/sendMail";
 import { SendMailResponse } from "@/actions/sendMail";
 import { ContactFormData } from "@/lib/zod-schemas";
 import Button from "../UI/Button";
+import Input from "./Input";
 
 
 export default function ContactForm() {
   //State
-  const [showForm, setShowForm] = useState(true);
+
 
   const [serverState, setServerState] = useState<SendMailResponse | null>(null);
 
   const [isPending, setIsPending] = useState<boolean>(false);
+
+  const showForm = !serverState?.success
 
 
   // React-Hook-Form + Resolver pour Zod
   const {
     register,
     handleSubmit,
-    trigger,
+    trigger, control,
     reset,
     formState: { errors: clientErrors, isSubmitting, isSubmitted },
   } = useForm<ContactFormData>({
@@ -34,12 +37,7 @@ export default function ContactForm() {
     reValidateMode: "onChange",
   });
 
-  // Variables
-  const firstname = register("firstname");
-  const name = register("name");
-  const email = register("email");
-  const telephone = register("telephone");
-  const message = register("message");
+
 
   // Envoi du formulaire au serveur
   const onSubmit = async (data: ContactFormData) => {
@@ -69,11 +67,6 @@ export default function ContactForm() {
   }, [clientErrors, isSubmitted]);
 
 
-  useEffect(() => {
-    if (serverState?.success) {
-      setShowForm(false);
-    }
-  }, [serverState]);
 
   // Si succès, afficher uniquement le message et le bouton
   if (serverState?.success && !showForm) {
@@ -87,7 +80,6 @@ export default function ContactForm() {
             onClick={() => {
               reset(); // vide les champs
               setServerState(null);
-              setShowForm(true); // réaffiche le formulaire
             }}
           >
             Nouveau message
@@ -105,138 +97,66 @@ export default function ContactForm() {
           onSubmit={handleSubmit(onSubmit)}
           className="max-w-2xl mx-auto flex flex-col gap-6 items-center-"
         >
-          <p className="text-center mb-10 text-gray-300">
-            {/* eslint-disable-next-line */}
-            Vous avez une question ou souhaitez travailler avec moi? N'hésitez
-            pas à me contacter via ce formulaire, je vous répondrai au plus
-            vite!
-          </p>
+
           {/* Informations personnelles */}
           <div className="flex flex-col gap-8 items-center w-full">
             {/* Nom de famille */}
-            <div className="w-full max-w-[400px] sm:w-fit relative">
-              <input
-                type="text"
-                id="name"
-                {...register("name")}
-                placeholder=" "
-                autoComplete="family-name"
-                aria-required="true"
-                aria-invalid={clientErrors.name ? "true" : "false"}
-                aria-errormessage={clientErrors.name ? "name-error" : undefined}
-                className="input peer"
-              />
-              <Label htmlFor="name">
-                Nom*
-              </Label>
 
-              {/* Erreur côté client */}
-              {clientErrors.name && (
-                <p id="name-error" className="formError" role="alert">{clientErrors.name.message}</p>
-              )}
-              {/* Erreur côté serveur */}
-              {serverState?.fieldErrors?.name && !clientErrors.name && (
-                <p id="name-error" className="formError" role="alert">{serverState.fieldErrors.name}</p>
-              )}
-            </div>
+            <Input
+              type="text"
+              name="name"
+              label="Nom*"
+              autoComplete="family-name"
+              register={register}
+              serverState={serverState}
+              control={control}
+            />
+
             {/* Prénom */}{" "}
-            <div className="w-full max-w-[400px] sm:w-fit relative">
-              <input
-                type="text"
-                id="firstname"
-                {...register("firstname")}
-                placeholder=" "
-                autoComplete="given-name"
-                aria-required="true"
-                className="input peer"
-                aria-invalid={clientErrors.firstname ? "true" : "false"}
-                aria-errormessage={clientErrors.firstname ? "firstname-error" : undefined}
-              />
-              <Label htmlFor={"firstname"}>
-                Prénom*
-              </Label>
-
-              {/* Erreur côté client */}
-              {clientErrors.firstname && (
-                <p id="firstname-error" className="formError" role="alert">{clientErrors.firstname.message}</p>
-              )}
-              {/* Erreur côté serveur */}
-              {serverState?.fieldErrors?.firstname &&
-                !clientErrors.firstname && (
-                  <p id="firstname-error" className="formError" role="alert">
-                    {serverState.fieldErrors.firstname}
-                  </p>
-                )}
-            </div>
+            <Input
+              type="text"
+              name="firstname"
+              label="Prénom*"
+              autoComplete="given-name"
+              register={register}
+              serverState={serverState}
+              control={control}
+            />
             {/* Adresse email */}
-            <div className="w-full max-w-[400px] sm:w-fit relative">
-              <div className="relative">
-                <input
-                  type="email"
-                  id="email"
-                  {...register("email")}
-                  placeholder=" "
-                  autoComplete="email"
-                  aria-required="true"
-                  className="input peer"
-                  aria-invalid={clientErrors.email ? "true" : "false"}
-                  aria-errormessage={clientErrors.email ? "email-error" : undefined}
-                />
-                <Label htmlFor={"email"}>
-                  Email*
-                </Label>
-              </div>
-              {/* Erreur côté client */}
-              {clientErrors.email && (
-                <p id="email-error" className="formError" role="alert">{clientErrors.email.message}</p>
-              )}
-              {/* Erreur côté serveur */}
-              {serverState?.fieldErrors?.email && !clientErrors.email && (
-                <p id="email-error" className="formError" role="alert">{serverState.fieldErrors.email}</p>
-              )}
-            </div>
+            <Input
+              type="email"
+              name="email"
+              label="Email*"
+              autoComplete="email"
+              register={register}
+              serverState={serverState}
+              control={control}
+            />
             {/* Téléphone */}
-            <div className="w-full max-w-[400px] sm:w-fit relative">
-              <input
-                {...register("telephone")}
-                type="tel"
-                id="telephone"
-                placeholder=" "
-                autoComplete="tel"
-                className="input peer"
-                aria-invalid={clientErrors.telephone ? "true" : "false"}
-                aria-errormessage={clientErrors.telephone ? "telephone-error" : undefined}
-              />
-              <Label htmlFor={"telephone"}>
-                Téléphone
-              </Label>
+            <Input
+              type="tel"
+              name="telephone"
+              label="Téléphone"
+              autoComplete="tel"
+              register={register}
+              serverState={serverState}
+              control={control}
+            />
 
-              {/* Erreur côté client */}
-              {clientErrors.telephone && (
-                <p id="telephone-error" className="formError" role="alert">{clientErrors.telephone.message}</p>
-              )}
-              {/* Erreur côté serveur */}
-              {serverState?.fieldErrors?.telephone &&
-                !clientErrors.telephone && (
-                  <p id="telephone-error" className="formError" role="alert">
-                    {serverState.fieldErrors.telephone}
-                  </p>
-                )}
-            </div>
           </div>
           {/* Choix du mode de contact */}
           <div className="text-center mt-5 mb-2">
 
             <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" >
 
-              <p className="mb-3 text-gray-300">
+              <p className="mb-3 text-gray-400">
                 <legend>Par quel moyen préférez-vous être recontacté?</legend>
               </p>
               <div className="flex justify-center text-center items-center gap-10 mb-3">
                 <div className="flex items-center">
                   <label
                     htmlFor="prefersEmail"
-                    className="inline-block align-middle mr-2 text-gray-300"
+                    className="inline-block align-middle mr-2 text-gray-400"
                   >
                     Email:
                   </label>
@@ -257,7 +177,7 @@ export default function ContactForm() {
                 <div className="flex items-center">
                   <label
                     htmlFor="prefersPhone"
-                    className="inline-block align-middle mr-2 text-gray-300"
+                    className="inline-block align-middle mr-2 text-gray-400"
                   >
                     Téléphone:
                   </label>
@@ -288,7 +208,11 @@ export default function ContactForm() {
                     {serverState.fieldErrors.wayToContact}
                   </p>
                 )}
-            </fieldset> </div>
+            </fieldset>
+          </div>
+
+
+
           {/* Message */}
           <div className="w-full max-w-[700px] md:w-fit relative">
             <textarea
@@ -330,7 +254,7 @@ export default function ContactForm() {
           {serverState?.error && !serverState?.fieldErrors && (
             <div className="formError" aria-live="polite">{serverState.error}</div>
           )}
-        </form>
+        </form >
       </>
     );
 }

@@ -15,7 +15,7 @@ export default function ContactPage() {
                             Contactez-moi
                         </h1>
                         <p className="text-gray-400">
-                            Une question, un projet ? Écrivez-moi, je vous réponds rapidement.
+                            Une question, un projet ? Écrivez-moi, je vous réponds sous 24 heures.
                         </p>
                     </div>
 

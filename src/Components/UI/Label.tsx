@@ -20,7 +20,7 @@ export default function Label({ children, ...props }: LabelProps) {
         
         peer-focus:top-1 
         peer-focus:text-xs! 
-        peer-focus:text-blue-600!
+        peer-focus:text-blue-500!
         
         /* ✅ Quand l'input a une valeur  */
         peer-[:not(:placeholder-shown)]:top-1 
