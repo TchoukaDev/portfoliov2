@@ -29,7 +29,7 @@ export default function HeroAbout() {
                 </p>
 
                 <p className="text-gray-400">
-                    Ancien cadre de santé en reconversion
+                    Ancien cadre de santé
                 </p>
 
             </Container>

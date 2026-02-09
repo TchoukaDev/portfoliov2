@@ -12,18 +12,17 @@ export default function ApplicationHero() {
 
             {/* Badge */}
             <span className="hero-label">
-                Développement sur mesure
+                Intégration & Interfaces
             </span>
 
             {/* Titre */}
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 max-w-3xl">
-                Applications web sur mesure
+                Intégration et applications web cadrées
             </h1>
 
             {/* Sous-titre */}
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10">
-                Vous avez un projet qui ne rentre pas dans une case ?
-                Je développe des applications adaptées à vos besoins.
+                Développement frontend et applications web adaptées à des besoins techniques clairement définis.
             </p>
 
             {/* CTA */}

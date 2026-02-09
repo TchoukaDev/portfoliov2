@@ -12,22 +12,16 @@ export default function WhyDev() {
 
                 <div className="space-y-6 text-gray-300">
                     <p>
-                        {/* eslint-disable-next-line */}
-                        Ce qui m'a attiré dans le développement web,
-                        {/* eslint-disable-next-line */}
-                        c'est le côté concret : partir de rien et créer
-                        quelque chose qui fonctionne, qui est utile.
+                        Ce qui m’a attiré dans le développement web, c’est son côté concret :
+                        partir d’un besoin, construire une solution, et livrer quelque chose de fonctionnel et utile.
                     </p>
 
                     <p>
-                        {/* eslint-disable-next-line */}
-                        J'aime résoudre des problèmes, comprendre comment
-                        les choses marchent, et voir le résultat de mon travail.
+                        J’aime comprendre les problématiques, résoudre des problèmes techniques et voir le résultat de mon travail prendre forme.
                     </p>
 
                     <p>
-                        {/* eslint-disable-next-line */}
-                        Chaque projet est différent. C'est ce qui rend ce métier passionnant.
+                        Chaque projet est différent, et c’est ce qui rend ce métier stimulant au quotidien.
                     </p>
                 </div>
 

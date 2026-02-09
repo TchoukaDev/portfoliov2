@@ -1,8 +1,19 @@
 import Container from "@/Components/UI/Container";
 import Section from "@/Components/UI/Section";
 import SectionHeader from "@/Components/UI/SectionHeader";
+import { Metadata } from "next";
 
 // app/politique-confidentialite/page.tsx
+export const metadata: Metadata = {
+    title: "Politique de confidentialité",
+    description:
+        "Politique de confidentialité et protection des données personnelles du site romainwirth.fr. Informations RGPD et utilisation des données.",
+    robots: {
+        index: false,
+        follow: true,
+    },
+};
+
 export default function PolitiqueConfidentialite() {
     return (
         <main>

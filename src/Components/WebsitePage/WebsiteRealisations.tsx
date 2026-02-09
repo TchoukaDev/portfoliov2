@@ -1,82 +1,67 @@
 // components/site-web/RealisationsVitrines.tsx
 import Image from "next/image";
-import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Section from "../UI/Section";
+import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function WebsiteRealisations() {
     const projets = [
         {
             title: "Clothilde Baudet",
-            description: "Site vitrine pour une psychologue. Design clair et apaisant.",
+            description:
+                "Landing page professionnelle pour une psychologue, conçue pour présenter l’activité, inspirer confiance et faciliter la prise de contact.",
             image: "/projects/clothilde-baudet.png",
             url: "https://clothilde-baudet.fr/",
-        },
-        {
-            title: "FlowerPower",
-            description: "Site vitrine avec boutique en ligne pour une fleuriste.",
-            image: "/projects/flowerpower.png",
-            url: "https://flowerpower.romainwirth.fr/",
         },
     ];
 
     return (
-        <Section alternate={true} className="px-6 py-20">
-            <div className="max-w-4xl mx-auto">
+        <Section alternate>
+            <Container size="sm">
+                <SectionHeader title="Un exemple de site réalisé" subtitle="Un projet conçu pour un professionnel indépendant." />
 
-                <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-4">
-                    Quelques réalisations
-                </h2>
-
-                <p className="text-gray-400 text-center mb-12">
-                    Des sites créés pour des clients comme vous.
-                </p>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projets.map((projet, index) => (
-                        <a
-                            key={index}
-                            href={projet.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group block rounded-2xl border border-gray-700 overflow-hidden hover:border-blue-500/50 transition-colors"
-                        >
-                            {/* Image */}
-                            <div className="relative h-48 bg-gray-800">
-                                <Image
-                                    src={projet.image}
-                                    alt={projet.title}
-                                    fill
-                                    className="object-cover"
-                                />
-                            </div>
-
-                            {/* Contenu */}
-                            <div className="p-6">
-                                <div className="flex items-center justify-between mb-2">
-                                    <h3 className="text-lg font-semibold text-white">
-                                        {projet.title}
-                                    </h3>
-                                    <ExternalLink size={16} className="text-gray-500 group-hover:text-blue-400 transition-colors" />
+                {/* Grille centrée */}
+                <div className="flex justify-center">
+                    <div className="w-full max-w-md">
+                        {projets.map((projet, index) => (
+                            <a
+                                key={index}
+                                href={projet.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group hover:scale-102 transition-all duration-300 block rounded-2xl border border-gray-700 overflow-hidden hover:border-blue-500/50 "
+                            >
+                                {/* Image */}
+                                <div className="relative h-48 bg-gray-800">
+                                    <Image
+                                        src={projet.image}
+                                        alt={projet.title}
+                                        fill
+                                        className="object-cover"
+                                    />
                                 </div>
-                                <p className="text-gray-400 text-sm">
-                                    {projet.description}
-                                </p>
-                            </div>
-                        </a>
-                    ))}
-                </div>
 
-                <div className="text-center mt-10">
-                    <Link
-                        href="/realisations"
-                        className="text-blue-400 hover:text-blue-300 text-sm"
-                    >
-                        Voir tous mes projets →
-                    </Link>
+                                {/* Contenu */}
+                                <div className="p-6">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <h3 className="text-lg font-semibold text-white">
+                                            {projet.title}
+                                        </h3>
+                                        <ExternalLink
+                                            size={16}
+                                            className="text-gray-500 group-hover:text-blue-400 transition-colors"
+                                        />
+                                    </div>
+                                    <p className="text-gray-400 text-sm">
+                                        {projet.description}
+                                    </p>
+                                </div>
+                            </a>
+                        ))}
+                    </div>
                 </div>
-
-            </div>
+            </Container>
         </Section>
     );
 }

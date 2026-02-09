@@ -5,12 +5,12 @@ import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
 import Card from "../UI/Card";
 
-export default function ApplicationSteps() {
+export default function ApplicationServices() {
     const projets = [
         {
             icon: <Monitor size={28} />,
             title: "Applications web",
-            description: "Outils métier, tableaux de bord, interfaces d'administration. Des applications pensées pour vos besoins.",
+            description: "Interfaces web, applications frontend, fonctionnalités spécifiques intégrées à un projet existant ou en création.",
         },
         {
             icon: <Rocket size={28} />,

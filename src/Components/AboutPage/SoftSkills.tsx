@@ -9,22 +9,22 @@ export default function SoftSkills() {
         {
             icon: <Ear size={24} />,
             title: "Écoute",
-            description: "Je prends le temps de comprendre vos besoins avant de proposer une solution.",
+            description: "Je prends le temps de comprendre vos besoins avant de proposer une solution adaptée.",
         },
         {
             icon: <CheckCircle size={24} />,
             title: "Rigueur",
-            description: "Je travaille de manière organisée et je respecte mes engagements.",
+            description: "Je travaille de manière organisée et je respecte les engagements pris.",
         },
         {
             icon: <BookOpen size={24} />,
             title: "Pédagogie",
-            description: "Je vous explique les choses simplement, sans jargon technique.",
+            description: "J'explique les choses simplement, sans jargon inutile.",
         },
         {
             icon: <Shield size={24} />,
             title: "Fiabilité",
-            description: "Je suis disponible et réactif. Vous savez à qui vous avez affaire.",
+            description: "Je suis disponible, réactif et transparent tout au long du projet.",
         },
     ];
 

@@ -31,7 +31,7 @@ export default function WebsiteHero() {
                 href="/contact"
                 className="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors"
             >
-                Demander un devis gratuit
+                Discuter de votre projet
             </Link>
             <SectionDivider />
         </header>

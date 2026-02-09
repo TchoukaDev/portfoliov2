@@ -31,7 +31,7 @@ export default function WebsiteServices() {
         </h2>
 
         <p className="text-gray-400 text-center mb-12 max-w-xl mx-auto">
-          Des sites web simples et efficaces, adaptés à vos besoins.
+          Des sites web simples et efficaces, facile à gérer au quotidien.
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

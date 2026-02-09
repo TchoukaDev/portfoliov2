@@ -53,18 +53,17 @@ export default function Services() {
                                     <Code size={28} />
                                 </div>
                                 <h3 className="text-xl font-semibold text-white">
-                                    Application sur mesure
+                                    Intégration & Interfaces
                                 </h3>
                             </div>
 
                             <p className="text-gray-400 mb-6">
-                                Application web, interface connectée, outil métier.
-                                Pour les projets qui sortent du cadre.
+                                Intégration frontend et interfaces web. Pour des projets spécifiques et techniques bien cadrés.
                             </p>
 
                             <ul className="space-y-2 text-sm text-gray-500 mb-8">
-                                <li>✓ Technologies modernes</li>
-                                <li>✓ Adapté à vos besoins</li>
+                                <li>✓ Technologies modernes (React, Next.js)</li>
+                                <li>✓ Interfaces claires et maintenables</li>
                                 <li>✓ Collaboration technique possible</li>
                             </ul>
 

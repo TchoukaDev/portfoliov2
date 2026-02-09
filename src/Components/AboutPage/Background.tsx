@@ -13,24 +13,18 @@ export default function Background() {
 
         <div className="space-y-6 text-gray-300">
           <p>
-            {/* eslint-disable-next-line */}
-            Pendant plusieurs années, j'ai été cadre de santé en milieu hospitalier. Un métier exigeant, où j'ai appris à écouter, organiser,
-            et accompagner des équipes au quotidien.
+
+            Pendant plusieurs années, j’ai travaillé comme cadre de santé en milieu hospitalier.
+            Un métier exigeant, où j’ai appris à écouter, organiser et accompagner des équipes dans des contextes complexes et contraints.
           </p>
 
           <p>
-            {/* eslint-disable-next-line */}
-            En 2025, j'ai décidé de changer de voie.
-            {/* eslint-disable-next-line */}
-            J'ai suivi une formation intensive en développement web,
-            {/* eslint-disable-next-line */}
-            puis j'ai continué à apprendre par moi-même, projet après projet.
+            En 2025, j’ai choisi d’orienter mon parcours vers le développement web.
+            Après une formation initiale, j’ai poursuivi mon apprentissage de manière autonome, en réalisant des projets concrets et en production.
           </p>
 
           <p>
-            {/* eslint-disable-next-line */}
-            Aujourd'hui, je mets cette rigueur et cette capacité d'écoute
-            au service de mes clients.
+            Aujourd’hui, je mets cette rigueur, cette capacité d’analyse et cette qualité d’écoute au service de mes clients.
           </p>
         </div>
 

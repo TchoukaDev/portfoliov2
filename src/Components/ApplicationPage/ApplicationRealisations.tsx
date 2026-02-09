@@ -10,15 +10,15 @@ import SectionHeader from "../UI/SectionHeader";
 export default function ApplicationRealisations() {
     const projets = [
         {
-            title: "Fitbuilder",
-            description: "Application de suivi d'entraînement : programmes personnalisés, suivi des séances, statistiques.",
+            title: "Fitbuilder ",
+            description: "MVP - Projet personnel - Application de suivi d'entraînement : programmes personnalisés, suivi des séances, statistiques.",
             image: "/projects/fitbuilder.png",
             url: "https://fitbuilder.romainwirth.fr/",
             stack: "Next.js, TypeScript, MongoDB",
         },
         {
             title: "Waves",
-            description: "MVP de réseau social : inscription, publications, messagerie instantanée, profils.",
+            description: "MVP - Projet personnel - Mini réseau social avec publications, messagerie instantanée, profils.",
             image: "/projects/waves.png",
             url: "https://waves.romainwirth.fr/",
             stack: "React, Firebase",
@@ -45,7 +45,7 @@ export default function ApplicationRealisations() {
                             href={projet.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group block rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-500/50 transition-colors"
+                            className="group block hover:scale-102 transition-all duration-300 rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-500/50 "
                         >
                             {/* Image */}
                             <div className="relative h-40 bg-gray-800">
@@ -78,14 +78,7 @@ export default function ApplicationRealisations() {
                     ))}
                 </div>
 
-                <div className="text-center mt-10">
-                    <Link
-                        href="/realisations"
-                        className="text-blue-400 hover:text-blue-300 text-sm"
-                    >
-                        Voir tous mes projets →
-                    </Link>
-                </div>
+
 
             </Container>
             <SectionDivider />

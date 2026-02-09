@@ -22,13 +22,11 @@ export default function Hero() {
             </h1>
 
             <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-12">
-                Je crée des sites web et des applications sur mesure
-                pour les indépendants et les entreprises.
+                {/* eslint-disable-next-line */}
+                Je crée des sites web professionnels pour les indépendants et petites entreprises, et j'interviens sur des interfaces web  pour les besoins techniques spécifiques.
             </p>
 
-            <p className="relative text-sm text-blue-300 mb-8">
-                📍 Disponible dès mars 2026
-            </p>
+
 
             <Button
 

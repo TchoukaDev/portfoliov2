@@ -1,8 +1,19 @@
 import Container from "@/Components/UI/Container";
 import Section from "@/Components/UI/Section";
 import SectionHeader from "@/Components/UI/SectionHeader";
+import { Metadata } from "next";
 
 // app/mentions-legales/page.tsx
+export const metadata: Metadata = {
+  title: "Mentions légales",
+  description:
+    "Mentions légales du site romainwirth.fr. Informations sur l'éditeur, l'hébergement et les conditions d'utilisation du site.",
+  robots: {
+    index: false,
+    follow: true,
+  },
+};
+
 export default function MentionsLegales() {
     return (
         <main>
