@@ -18,7 +18,7 @@ export default function Services() {
 
                     {/* Carte Site Web */}
                     <HoveredCard>
-                        <Link href="/site-web">
+                        <Link href="/sites-web">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
                                     <Globe size={28} />
@@ -47,7 +47,7 @@ export default function Services() {
 
                     {/* Carte Application */}
                     <HoveredCard>
-                        <Link href="/application">
+                        <Link href="/applications">
                             <div className="flex items-center gap-4 mb-6">
                                 <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 group-hover:bg-blue-500/20 transition-colors">
                                     <Code size={28} />
