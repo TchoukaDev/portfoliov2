@@ -13,11 +13,13 @@ export const metadata: Metadata = {
   keywords: [
     "à propos",
     "Romain WIRTH",
-    "parcours",
-    "compétences",
+    "écoute",
+    "rigueur",
+    "pédagogie",
+    "fiabilité",
     "développeur web",
-    "freelance",
     "Haute-Marne",
+    "Chaumont"
   ],
 };
 

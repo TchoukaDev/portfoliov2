@@ -14,25 +14,26 @@ export const metadata: Metadata = {
   keywords: [
     "création site web",
     "site vitrine",
+    "landing page",
     "artisan",
     "indépendant",
     "petite entreprise",
     "WordPress",
-    "site sur mesure",
     "Haute-Marne",
+    "Chaumont",
     "Romain WIRTH",
   ],
 };
 
 export default function SiteWebPage() {
-    return (
-        <main>
-            <WebsiteHero />
-            <WebsiteTarget />
-            <WebsiteServices />
-            <WebsiteSteps />
-            <WebsiteRealisations />
-            <WebsiteCTA />
-        </main>
-    );
+  return (
+    <main>
+      <WebsiteHero />
+      <WebsiteTarget />
+      <WebsiteServices />
+      <WebsiteSteps />
+      <WebsiteRealisations />
+      <WebsiteCTA />
+    </main>
+  );
 }

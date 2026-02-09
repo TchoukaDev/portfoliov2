@@ -15,13 +15,17 @@ export const metadata: Metadata = {
     "Développement d'applications web modernes et performantes avec React, Next.js et TypeScript. Solutions sur mesure adaptées à vos besoins métier.",
   keywords: [
     "application web",
-    "développement web",
+    "landing page",
+    "sites web",
     "React",
     "Next.js",
     "TypeScript",
-    "sur mesure",
-    "Romain WIRTH",
-    "développeur fullstack",
+    "Grand-Est",
+    "développeur web",
+    "CMS headless",
+    "développement frontend",
+    "intégration web",
+    "interfaces web",
   ],
 };
 
