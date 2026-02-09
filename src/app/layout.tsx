@@ -15,11 +15,6 @@ export const dmSans = localFont({
       style: "normal",
     },
     {
-      path: "./fonts/DMSans-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-    {
       path: "./fonts/DMSans-SemiBold.woff2",
       weight: "600",
       style: "normal",
@@ -30,11 +25,6 @@ export const dmSans = localFont({
 });
 const raleway = localFont({
   src: [
-    {
-      path: "./fonts/Raleway-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
     {
       path: "./fonts/Raleway-Bold.woff2",
       weight: "700",
