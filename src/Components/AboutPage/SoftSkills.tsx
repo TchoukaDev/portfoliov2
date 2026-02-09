@@ -29,7 +29,7 @@ export default function SoftSkills() {
     ];
 
     return (
-        <Section className="px-6 py-20 bg-gray-900/30">
+        <Section alternate>
             < Container size="md" >
 
                 <SectionHeader title="Ce que j'apporte de mon ancien métier" subtitle="Des qualités développées sur le terrain, que je mets au service de mes clients." />
