@@ -84,6 +84,8 @@ export default function PolitiqueConfidentialite() {
                                 Seuls des cookies techniques essentiels au fonctionnement du site
                                 peuvent être utilisés.
                             </p>
+
+                            <p>Ce site utilise Vercel Analytics, un outil de mesure d’audience respectueux de la vie privée, ne déposant aucun cookie et ne permettant pas l’identification personnelle des visiteurs</p>
                         </section>
 
                         {/* Droits */}

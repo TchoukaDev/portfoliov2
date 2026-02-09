@@ -18,10 +18,6 @@ export const dmSans = localFont({
       path: "./fonts/DMSans-Bold.woff2",
       weight: "700",
       style: "normal",
-    }, {
-      path: "./fonts/DMSans-Italic.woff2",
-      weight: "400",
-      style: "italic",
     },
     {
       path: "./fonts/DMSans-SemiBold.woff2",

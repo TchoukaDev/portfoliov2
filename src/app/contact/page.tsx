@@ -2,7 +2,7 @@
 import ContactForm from "@/Components/ContactPage/ContactForm";
 import Container from "@/Components/UI/Container";
 import Section from "@/Components/UI/Section";
-import { MapIcon, MapPin } from "lucide-react";
+import { MapPin } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

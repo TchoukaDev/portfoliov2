@@ -39,6 +39,7 @@ export default function WebsiteRealisations() {
                                         alt={projet.title}
                                         fill
                                         className="object-cover"
+                                        loading="lazy"
                                     />
                                 </div>
 

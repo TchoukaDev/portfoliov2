@@ -54,6 +54,7 @@ export default function ApplicationRealisations() {
                                     alt={projet.title}
                                     fill
                                     className="object-cover"
+                                    loading="lazy"
                                 />
                             </div>
 
