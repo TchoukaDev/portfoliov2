@@ -40,6 +40,7 @@ export default function WebsiteRealisations() {
                                         fill
                                         className="object-cover"
                                         loading="lazy"
+                                        sizes="100%"
                                     />
                                 </div>
 

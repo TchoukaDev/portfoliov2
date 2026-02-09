@@ -123,6 +123,7 @@ export default function ProjectsGrid() {
                                         fill
                                         className="object-cover transition-transform duration-300"
                                         loading="lazy"
+                                        sizes="100%"
                                     />
                                 </div>
 

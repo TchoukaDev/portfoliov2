@@ -17,6 +17,8 @@ export default function ShortAbout() {
                             alt="Romain Wirth"
                             fill
                             className="rounded-full object-cover"
+                            loading="lazy"
+                            sizes="(max-width: 768px) 128px, 160px"
                         />
                     </div >
 
