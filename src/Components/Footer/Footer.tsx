@@ -1,4 +1,5 @@
 // components/Footer.tsx
+import { MapPin } from "lucide-react";
 import Link from "next/link";
 
 const navLinks = [
@@ -18,7 +19,7 @@ export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="border-t border-gray-800 bg-gray-950">
+        <footer role="contentinfo" className="border-t border-gray-800 bg-gray-950">
             <div className="max-w-5xl mx-auto px-6 py-12">
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-8">
@@ -28,9 +29,10 @@ export default function Footer() {
                         <p className="text-white font-bold text-lg mb-2">
                             Romain Wirth
                         </p>
-                        <p className="text-gray-500 text-sm">
+                        <p className="text-gray-500 text-sm mb-2">
                             Développeur web freelance
                         </p>
+                        <p className="flex items-center justify-left text-gray-500 text-sm"><MapPin className="w-4 h-4 mr-2" />Nogent, Haute-Marne</p>
                     </div>
 
                     {/* Liens */}
@@ -49,7 +51,7 @@ export default function Footer() {
                 </div>
 
                 {/* Séparateur */}
-                <div className="border-t border-gray-800 mt-10 pt-8">
+                <div className="border-t border-gray-800 mt-8 pt-8">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
 
                         {/* Copyright */}

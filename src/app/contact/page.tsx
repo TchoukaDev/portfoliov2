@@ -2,6 +2,7 @@
 import ContactForm from "@/Components/ContactPage/ContactForm";
 import Container from "@/Components/UI/Container";
 import Section from "@/Components/UI/Section";
+import { MapIcon, MapPin } from "lucide-react";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -46,6 +47,9 @@ export default function ContactPage() {
                             <a href="mailto:contact@romainwirth.fr" className="text-blue-400 hover:text-blue-300">
                                 contact@romainwirth.fr
                             </a>
+                        </p>
+                        <p className="mt-4 flex items-center justify-center text-sm text-gray-500">
+                            <MapPin className="w-4 h-4 mr-2" /> Basé à Nogent (Haute‑Marne), j’accompagne les clients localement et à distance.
                         </p>
                     </div>
 
