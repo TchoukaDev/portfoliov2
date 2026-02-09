@@ -27,10 +27,9 @@ export default function Input({ type, name, label, autoComplete, register, serve
                     {...register(name)}
                     placeholder=" "
                     autoComplete={autoComplete}
-                    aria-required="true"
                     className="input peer"
                     aria-invalid={fieldError ? "true" : "false"}
-                    aria-errormessage={fieldError ? `${name}-error` : undefined}
+                    aria-describedby={fieldError ? `${name}-error` : undefined}
                 />
                 <Label htmlFor={name}>
                     {label}

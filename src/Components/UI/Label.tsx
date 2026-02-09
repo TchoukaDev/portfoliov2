@@ -13,7 +13,7 @@ export default function Label({ children, ...props }: LabelProps) {
         peer-placeholder-shown:top-4 
         peer-placeholder-shown:text-sm 
         md:peer-placeholder-shown:text-base 
-        peer-placeholder-shown:text-gray-500
+        peer-placeholder-shown:text-gray-400
 
         
         /* Quand l'input a le focus */

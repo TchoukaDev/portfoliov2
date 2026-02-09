@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
     return (
         <main>
-            <Section>
+            <Section className="opacity-100">
                 <Container size="md">
 
                     {/* Hero */}
@@ -41,14 +41,14 @@ export default function ContactPage() {
                     <ContactForm />
 
                     {/* Infos complémentaires */}
-                    <div className="mt-16 text-center text-sm text-gray-500">
+                    <div className="mt-16 text-center text-sm text-gray-400">
                         <p>Vous pouvez aussi me contacter directement :</p>
                         <p className="mt-2">
                             <a href="mailto:contact@romainwirth.fr" className="text-blue-400 hover:text-blue-300">
                                 contact@romainwirth.fr
                             </a>
                         </p>
-                        <p className="mt-4 flex items-center justify-center text-sm text-gray-500">
+                        <p className="mt-4 flex items-center justify-center text-sm text-gray-400">
                             <MapPin className="w-4 h-4 mr-2" /> Basé à Nogent (Haute‑Marne), j’accompagne les clients localement et à distance.
                         </p>
                     </div>

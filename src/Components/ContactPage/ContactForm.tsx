@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { sendMailSchema } from "@/lib/zod-schemas";
 import { useEffect, useState } from "react";
-import { ClipLoader } from "react-spinners";
 import Label from "../UI/Label";
 import { sendMail } from "@/actions/sendMail";
 import { SendMailResponse } from "@/actions/sendMail";
@@ -147,19 +146,14 @@ export default function ContactForm() {
           {/* Choix du mode de contact */}
           <div className="text-center mt-5 mb-2">
 
-            <fieldset aria-required="true" aria-invalid={clientErrors.wayToContact ? "true" : "false"} aria-errormessage={clientErrors.wayToContact ? "wayToContact-error" : undefined} aria-live="polite" >
+            <fieldset aria-describedby={clientErrors.wayToContact ? "wayToContact-error" : undefined}  >
 
               <p className="mb-3 text-gray-400">
-                <legend>Par quel moyen préférez-vous être recontacté?</legend>
+                <legend>Par quel moyen préférez-vous être recontacté?*</legend>
               </p>
               <div className="flex justify-center text-center items-center gap-10 mb-3">
                 <div className="flex items-center">
-                  <label
-                    htmlFor="prefersEmail"
-                    className="inline-block align-middle mr-2 text-gray-400"
-                  >
-                    Email:
-                  </label>
+
                   <input
                     type="checkbox"
                     {...register("prefersEmail", {
@@ -173,14 +167,15 @@ export default function ContactForm() {
                     id="prefersEmail"
                     className="cursor-pointer"
                   />
+                  <label
+                    htmlFor="prefersEmail"
+                    className="inline-block align-middle ml-2 text-gray-400"
+                  >
+                    Email
+                  </label>
                 </div>
                 <div className="flex items-center">
-                  <label
-                    htmlFor="prefersPhone"
-                    className="inline-block align-middle mr-2 text-gray-400"
-                  >
-                    Téléphone:
-                  </label>
+
                   <input
                     type="checkbox"
                     className="cursor-pointer"
@@ -196,6 +191,12 @@ export default function ContactForm() {
                     })}
                     id="prefersPhone"
                   />
+                  <label
+                    htmlFor="prefersPhone"
+                    className="inline-block align-middle ml-2 text-gray-400"
+                  >
+                    Téléphone
+                  </label>
                 </div>
               </div>
 
@@ -222,9 +223,8 @@ export default function ContactForm() {
               id="message"
               {...register("message")}
               placeholder=" "
-              aria-required="true"
               aria-invalid={clientErrors.message ? "true" : "false"}
-              aria-errormessage={clientErrors.message ? "message-error" : undefined}
+              aria-describedby={clientErrors.message ? "message-error" : undefined}
             />
             <Label htmlFor="message">
               Écrivez votre message*
@@ -243,7 +243,7 @@ export default function ContactForm() {
             <Button disabled={isSubmitting || isSubmitting} type="submit" aria-label="Envoyer le message">
               {isSubmitting || isPending ? (
                 <span className="flex items-center text-sand justify-center gap-2">
-                  Envoi en cours... <ClipLoader size={20} color="#f3f4f6" />
+                  Envoi en cours... <span className="inline-block w-5 h-5 border-2 border-gray-300 border-t-transparent rounded-full animate-spin" />
                 </span>
               ) : (
                 "Envoyer"
@@ -252,7 +252,7 @@ export default function ContactForm() {
           </div>
           {/* Erreur serveur générale */}
           {serverState?.error && !serverState?.fieldErrors && (
-            <div className="formError" aria-live="polite">{serverState.error}</div>
+            <div className="formError" role="alert">{serverState.error}</div>
           )}
         </form >
       </>
