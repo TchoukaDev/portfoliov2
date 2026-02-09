@@ -1,3 +1,7 @@
+"use client";
+
+import useSectionObserver from "@/hooks/useSectionObserver";
+
 // components/ui/.tsx
 type SectionProps = React.HTMLAttributes<HTMLDivElement> & {
     children: React.ReactNode;
@@ -6,11 +10,11 @@ type SectionProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 
 export default function Section({ children, alternate = false, className = "", ...props }: SectionProps) {
-
+    useSectionObserver();
     if (alternate) {
         return (
             <section {...props} className={`
-                px-6 py-20 rounded-2xl relative
+                px-6 py-20 rounded-2xl relative opacity-0 transition-opacity duration-500
                 bg-gray-900/30
                 ${className}
             `}> <div className="absolute -inset-px rounded-2xl bg-linear-to-r from-blue-500 via-purple-500 to-cyan-400 bg-size-[200%_200%] gradient-xy -z-10" />
@@ -21,7 +25,7 @@ export default function Section({ children, alternate = false, className = "", .
     }
     return (
         <section {...props} className={`
-      px-6 py-20 rounded-2xl relative
+      px-6 py-20 rounded-2xl relative opacity-0 transition-opacity duration-500
     
       ${className}
     `}>

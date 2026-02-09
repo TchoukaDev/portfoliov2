@@ -102,6 +102,10 @@
    }
  }
 
+ .animate-fade-in {
+   opacity: 1;
+ }
+
  /* globals.css */
  .animated-border {
    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
