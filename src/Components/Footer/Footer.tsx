@@ -29,10 +29,10 @@ export default function Footer() {
                         <p className="text-white font-bold text-lg mb-2">
                             Romain Wirth
                         </p>
-                        <p className="text-gray-500 text-sm mb-2">
+                        <p className="text-gray-400 text-sm mb-2">
                             Développeur web freelance
                         </p>
-                        <p className="flex items-center justify-left text-gray-500 text-sm"><MapPin className="w-4 h-4 mr-2" />Nogent, Haute-Marne</p>
+                        <p className="flex items-center justify-left text-gray-400 text-sm"><MapPin className="w-4 h-4 mr-2" />Nogent, Haute-Marne</p>
                     </div>
 
                     {/* Liens */}
@@ -41,7 +41,7 @@ export default function Footer() {
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className="text-gray-400 hover:text-white text-sm transition-colors"
+                                className="text-gray-300 hover:text-white text-sm transition-colors"
                             >
                                 {link.label}
                             </Link>
@@ -52,7 +52,7 @@ export default function Footer() {
 
                 {/* Séparateur */}
                 <div className="border-t border-gray-800 mt-8 pt-8">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
 
                         {/* Copyright */}
                         <p>
@@ -65,7 +65,7 @@ export default function Footer() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className="text-gray-500 hover:text-gray-400 transition-colors"
+                                    className="text-gray-400 hover:text-gray-300 transition-colors"
                                 >
                                     {link.label}
                                 </Link>
@@ -73,7 +73,7 @@ export default function Footer() {
                             <span className="text-gray-700">|</span>
                             <a
                                 href="mailto:contact@romainwirth.fr"
-                                className="text-gray-400 hover:text-blue-400 transition-colors"
+                                className="text-gray-300 hover:text-blue-400 transition-colors"
                             >
                                 contact@romainwirth.fr
                             </a>

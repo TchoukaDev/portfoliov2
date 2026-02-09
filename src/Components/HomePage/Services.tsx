@@ -28,12 +28,12 @@ export default function Services() {
                                 </h3>
                             </div>
 
-                            <p className="text-gray-400 mb-6">
+                            <p className="text-gray-300 mb-6">
                                 Site vitrine, e-commerce, refonte.
                                 Pour les indépendants, artisans et commerces.
                             </p>
 
-                            <ul className="space-y-2 text-sm text-gray-500 mb-8">
+                            <ul className="space-y-2 text-sm text-gray-400 mb-8">
                                 <li>✓ Un site à votre image</li>
                                 <li>✓ Facile à gérer au quotidien</li>
                                 <li>✓ Accompagnement de A à Z</li>
@@ -57,11 +57,11 @@ export default function Services() {
                                 </h3>
                             </div>
 
-                            <p className="text-gray-400 mb-6">
+                            <p className="text-gray-300 mb-6">
                                 Intégration frontend et interfaces web. Pour des projets spécifiques et techniques bien cadrés.
                             </p>
 
-                            <ul className="space-y-2 text-sm text-gray-500 mb-8">
+                            <ul className="space-y-2 text-sm text-gray-400 mb-8">
                                 <li>✓ Technologies modernes (React, Next.js)</li>
                                 <li>✓ Interfaces claires et maintenables</li>
                                 <li>✓ Collaboration technique possible</li>
