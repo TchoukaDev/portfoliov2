@@ -7,9 +7,9 @@ import SectionHeader from "../UI/SectionHeader";
 export default function ApplicationTarget() {
     const points = [
         "Vous avez un besoin technique précis et bien défini",
+        "Vous souhaitez une landing page ou un site web performant et bien référencé",
         "Vous voulez lancer un MVP pour tester une idée",
         "Vous avez besoin d'une interface connectée à vos données",
-        "Votre projet nécessite des fonctionnalités spécifiques",
         "Vous cherchez un développeur pour renforcer votre équipe",
     ];
 
