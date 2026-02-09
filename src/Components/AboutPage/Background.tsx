@@ -6,7 +6,7 @@ import SectionHeader from "../UI/SectionHeader";
 
 export default function Background() {
   return (
-    <Section alternate className="max-w-4xl mx-auto">
+    <Section alternate className="max-w-4xl mx-auto opacity-100">
       < Container size="sm" >
 
         <SectionHeader title="Mon parcours" />

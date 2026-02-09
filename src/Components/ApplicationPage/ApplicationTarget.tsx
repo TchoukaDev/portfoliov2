@@ -14,7 +14,7 @@ export default function ApplicationTarget() {
     ];
 
     return (
-        <Section>
+        <Section className="opacity-100">
             <Container size="sm">
 
                 <SectionHeader title="Ce service est pour vous si..." />

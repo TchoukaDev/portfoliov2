@@ -9,7 +9,7 @@ import HoveredCard from "../UI/HoveredCard";
 
 export default function Services() {
     return (
-        <Section id="services">
+        <Section id="services" className="opacity-100">
             <Container size="lg">
 
                 <SectionHeader title="Comment puis-je vous aider ?" subtitle="Deux types de projets, deux approches adaptées." />

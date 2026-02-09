@@ -7,8 +7,13 @@ export default function HeroAbout() {
         <header className="relative px-6 py-20">
             <Container size="md" className="text-center">
 
+
+                {/* Titre */}
+                <h1 className="mb-8">
+                    Qui suis-je ?
+                </h1>
                 {/* Photo */}
-                <div className="relative w-40 h-40 mx-auto mb-8">
+                <div className="relative w-48 h-48 mx-auto mb-8">
                     <Image
                         src="/assets/images/photopro_blue.png"
                         alt="Romain Wirth"
@@ -18,11 +23,8 @@ export default function HeroAbout() {
                     />
                 </div>
 
-                {/* Nom */}
-                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                    Romain Wirth
-                </h1>
 
+                <p className="text-2xl md:text-3xl font-bold text-white font-heading mb-4">Romain Wirth</p>
                 {/* Sous-titre */}
                 <p className="text-lg text-blue-400 mb-2">
                     Développeur web freelance
@@ -33,6 +35,6 @@ export default function HeroAbout() {
                 </p>
 
             </Container>
-        </header>
+        </header >
     );
 }
