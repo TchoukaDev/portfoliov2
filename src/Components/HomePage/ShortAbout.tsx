@@ -6,17 +6,18 @@ import Container from "../UI/Container";
 
 export default function ShortAbout() {
     return (
-        <Section>
+        <Section >
             < Container size="md" >
+
                 < div className="mx-auto flex flex-col md:flex-row items-center gap-10" >
 
                     {/* Photo */}
-                    < div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0" >
+                    < div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden" >
                         <Image
                             src="/assets/images/photopro_blue.png"
                             alt="Romain Wirth"
                             fill
-                            className="rounded-full object-cover"
+                            className="object-cover"
                             loading="lazy"
                             sizes="(max-width: 768px) 128px, 160px"
                         />
