@@ -19,8 +19,8 @@ export default function useSectionObserver() {
                 });
             },
             {
-                threshold: 0, // 0.1 souvent plus fiable que 0
-                rootMargin: "0px 0px -50px 0px" // Optionnel: déclencher un peu avant
+                threshold: 0.1, // 0.1 souvent plus fiable que 0
+                rootMargin: "0px 0px 50px 0px" // Optionnel: déclencher un peu avant
             },
         );
 

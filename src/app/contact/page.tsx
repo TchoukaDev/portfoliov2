@@ -48,8 +48,8 @@ export default function ContactPage() {
                                 contact@romainwirth.fr
                             </a>
                         </p>
-                        <p className="mt-4 flex items-center justify-center text-sm text-gray-400">
-                            <MapPin className="w-4 h-4 mr-2" /> Basé à Nogent (Haute‑Marne), j’accompagne les clients localement et à distance.
+                        <p className="mt-4 text-center text-sm text-gray-400">
+                            <MapPin className="w-4 h-4 mr-1 inline-flex" /> Basé à Nogent (Haute‑Marne), j’accompagne les clients localement et à distance.
                         </p>
                     </div>
 
