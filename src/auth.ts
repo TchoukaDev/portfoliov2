@@ -42,7 +42,6 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
 
         const user = await UserRepository.getUserByEmail(email);
         if (!user) return null;
-
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) return null;
 
@@ -50,4 +49,24 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    /**
+     * Persiste l'id dans le token JWT lors de la création de session.
+     * `user` n'est présent qu'au moment de la connexion — on le copie
+     * dans le token pour le retrouver lors des requêtes suivantes.
+     */
+    jwt({ token, user }) {
+      if (user?.id) token.id = user.id;
+      return token;
+    },
+    /**
+     * Expose l'id dans l'objet session accessible côté serveur.
+     * Sans ce callback, `session.user.id` serait `undefined` malgré
+     * sa présence dans le token JWT.
+     */
+    session({ session, token }) {
+      if (token.id) session.user.id = token.id as string;
+      return session;
+    },
+  },
 });
