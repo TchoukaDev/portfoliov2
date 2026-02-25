@@ -56,3 +56,38 @@ export const sendMailSchema = z
 
 
 export type ContactFormData = z.input<typeof sendMailSchema> & { wayToContact?: never };
+
+// --- Inscription ---
+export const registerSchema = z
+  .object({
+    firstname: z.string().min(1, "Prénom requis").max(30),
+    name: z.string().min(1, "Nom requis").max(30),
+    email: z.string().email("Email invalide"),
+    password: z.string().min(8, "Minimum 8 caractères"),
+    confirmPassword: z.string().min(1, "Confirmation requise"),
+  })
+  .refine((d) => d.password === d.confirmPassword, {
+    message: "Les mots de passe ne correspondent pas",
+    path: ["confirmPassword"],
+  });
+
+export type RegisterFormData = z.infer<typeof registerSchema>;
+
+// --- Connexion ---
+export const loginSchema = z.object({
+  email: z.string().email("Email invalide"),
+  password: z.string().min(1, "Mot de passe requis"),
+});
+
+export type LoginFormData = z.infer<typeof loginSchema>;
+
+// --- Article ---
+export const articleSchema = z.object({
+  title: z.string().min(1, "Titre requis").max(200),
+  slug: z.string().min(1, "Slug requis").max(200),
+  content: z.string().min(1, "Contenu requis"),
+  excerpt: z.string().max(500).optional(),
+  published: z.boolean(),
+});
+
+export type ArticleFormData = z.infer<typeof articleSchema>;
