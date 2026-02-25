@@ -5,6 +5,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import { logoutAction } from "@/actions/auth";
 
 const navLinks = [
     { href: "/", label: "Accueil" },
@@ -18,19 +19,14 @@ export default function Navbar() {
     const pathname = usePathname();
 
     const toggleMenu = () => setIsOpen(!isOpen);
+    const handleLinkClick = () => setIsOpen(false);
 
-    // Ferme le menu au clic sur un lien
-    const handleLinkClick = () => {
-        setIsOpen(false);
-    };
-
-    // Vérifie si le lien est actif
     const isActive = (href: string) => {
-        if (href === "/") {
-            return pathname === "/";
-        }
+        if (href === "/") return pathname === "/";
         return pathname.startsWith(href);
     };
+
+    const isOnAdmin = pathname.startsWith("/admin");
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
@@ -46,35 +42,63 @@ export default function Navbar() {
                         Romain Wirth
                     </Link>
 
-                    {/* Desktop : liens */}
+                    {/* Desktop */}
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link) => (
                             <Link
                                 key={link.href}
                                 href={link.href}
-                                className={`text-sm transition-all duration-300  border-b-2  ${isActive(link.href)
-                                    ? "text-blue-400  border-blue-500"
+                                className={`text-sm transition-all duration-300 border-b-2 ${isActive(link.href)
+                                    ? "text-blue-400 border-blue-500"
                                     : "text-gray-400 hover:text-white border-transparent"
                                     }`}
                             >
                                 {link.label}
                             </Link>
                         ))}
-                        <Link
-                            href="/contact"
-                            className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
-                                ? "bg-blue-500 text-white border border-gray-300"
-                                : "bg-blue-600 hover:bg-blue-500 text-white"
-                                }`}
-                        >
-                            Contact
-                        </Link>
+
+                        {isOnAdmin ? (
+                            /* Liens admin : visibles uniquement quand l'utilisateur est connecté */
+                            <>
+                                <div className="w-px h-4 bg-gray-700" aria-hidden="true" />
+                                <span className="text-xs font-medium text-blue-400 border border-blue-500/40 rounded px-2 py-0.5">
+                                    Admin
+                                </span>
+                                <Link
+                                    href="/admin/articles"
+                                    className={`text-sm transition-all duration-300 border-b-2 ${isActive("/admin/articles")
+                                        ? "text-blue-400 border-blue-500"
+                                        : "text-gray-400 hover:text-white border-transparent"
+                                        }`}
+                                >
+                                    Articles
+                                </Link>
+                                <form action={logoutAction}>
+                                    <button
+                                        type="submit"
+                                        className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
+                                    >
+                                        Déconnexion
+                                    </button>
+                                </form>
+                            </>
+                        ) : (
+                            <Link
+                                href="/contact"
+                                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
+                                    ? "bg-blue-500 text-white border border-gray-300"
+                                    : "bg-blue-600 hover:bg-blue-500 text-white"
+                                    }`}
+                            >
+                                Contact
+                            </Link>
+                        )}
                     </div>
 
-                    {/* Mobile : burger */}
+                    {/* Burger (mobile) */}
                     <button
                         onClick={toggleMenu}
-                        className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+                        className="md:hidden p-2 text-gray-400 hover:text-white transition-colors cursor-pointer"
                         aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
                         aria-expanded={isOpen}
                     >
@@ -84,16 +108,12 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile : menu déroulant avec animation */}
+            {/* Menu mobile déroulant */}
             <div
                 className={`
-          md:hidden 
-          overflow-hidden 
-          transition-all 
-          duration-300 
-          ease-in-out
-          ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
-        `}
+                    md:hidden overflow-hidden transition-all duration-300 ease-in-out
+                    ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+                `}
             >
                 <div className="bg-gray-950 border-t border-gray-800 px-6 py-4 space-y-4">
                     {navLinks.map((link) => (
@@ -109,16 +129,44 @@ export default function Navbar() {
                             {link.label}
                         </Link>
                     ))}
-                    <Link
-                        href="/contact"
-                        onClick={handleLinkClick}
-                        className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
-                            ? "bg-blue-500 text-white"
-                            : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
-                            }`}
-                    >
-                        Contact
-                    </Link>
+
+                    {isOnAdmin ? (
+                        /* Liens admin (mobile) */
+                        <>
+                            <div className="border-t border-gray-800 pt-4 space-y-4">
+                                <Link
+                                    href="/admin/articles"
+                                    onClick={handleLinkClick}
+                                    className={`block transition-all duration-300 border-b-2 ${isActive("/admin/articles")
+                                        ? "text-blue-400 border-blue-500"
+                                        : "text-gray-400 hover:text-white border-transparent"
+                                        }`}
+                                >
+                                    Articles
+                                </Link>
+                                <form action={logoutAction}>
+                                    <button
+                                        type="submit"
+                                        onClick={handleLinkClick}
+                                        className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
+                                    >
+                                        Déconnexion
+                                    </button>
+                                </form>
+                            </div>
+                        </>
+                    ) : (
+                        <Link
+                            href="/contact"
+                            onClick={handleLinkClick}
+                            className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
+                                ? "bg-blue-500 text-white"
+                                : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
+                                }`}
+                        >
+                            Contact
+                        </Link>
+                    )}
                 </div>
             </div>
         </nav>
