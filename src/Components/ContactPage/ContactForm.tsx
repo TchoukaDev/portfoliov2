@@ -9,25 +9,20 @@ import { sendMail } from "@/actions/sendMail";
 import { SendMailResponse } from "@/actions/sendMail";
 import { ContactFormData } from "@/lib/zod-schemas";
 import Button from "../UI/Button";
-import Input from "./Input";
+import FormInput from "../UI/FormInput";
 
 
 export default function ContactForm() {
-  //State
-
-
   const [serverState, setServerState] = useState<SendMailResponse | null>(null);
-
   const [isPending, setIsPending] = useState<boolean>(false);
 
   const showForm = !serverState?.success
-
 
   // React-Hook-Form + Resolver pour Zod
   const {
     register,
     handleSubmit,
-    trigger, control,
+    trigger,
     reset,
     formState: { errors: clientErrors, isSubmitting, isSubmitted },
   } = useForm<ContactFormData>({
@@ -35,8 +30,6 @@ export default function ContactForm() {
     mode: "onSubmit",
     reValidateMode: "onChange",
   });
-
-
 
   // Envoi du formulaire au serveur
   const onSubmit = async (data: ContactFormData) => {
@@ -55,17 +48,14 @@ export default function ContactForm() {
     setIsPending(false);
   };
 
-  // Dans le useEffect ou après validation échouée :
+  // Focus sur le premier champ en erreur après soumission
   useEffect(() => {
     if (isSubmitted && Object.keys(clientErrors).length > 0) {
-      // Focus sur le premier champ en erreur
       const firstErrorField = Object.keys(clientErrors)[0];
       const element = document.getElementById(firstErrorField);
       element?.focus();
     }
   }, [clientErrors, isSubmitted]);
-
-
 
   // Si succès, afficher uniquement le message et le bouton
   if (serverState?.success && !showForm) {
@@ -77,7 +67,7 @@ export default function ContactForm() {
             aria-label="Nouveau message"
             type="button"
             onClick={() => {
-              reset(); // vide les champs
+              reset();
               setServerState(null);
             }}
           >
@@ -99,90 +89,72 @@ export default function ContactForm() {
 
           {/* Informations personnelles */}
           <div className="flex flex-col gap-8 items-center w-full">
-            {/* Nom de famille */}
-
-            <Input
+            <FormInput<ContactFormData>
               type="text"
               name="name"
               label="Nom*"
               autoComplete="family-name"
               register={register}
-              serverState={serverState}
-              control={control}
+              error={clientErrors.name?.message}
+              serverError={serverState?.fieldErrors?.name}
             />
-
-            {/* Prénom */}{" "}
-            <Input
+            <FormInput<ContactFormData>
               type="text"
               name="firstname"
               label="Prénom*"
               autoComplete="given-name"
               register={register}
-              serverState={serverState}
-              control={control}
+              error={clientErrors.firstname?.message}
+              serverError={serverState?.fieldErrors?.firstname}
             />
-            {/* Adresse email */}
-            <Input
+            <FormInput<ContactFormData>
               type="email"
               name="email"
               label="Email*"
               autoComplete="email"
               register={register}
-              serverState={serverState}
-              control={control}
+              error={clientErrors.email?.message}
+              serverError={serverState?.fieldErrors?.email}
             />
-            {/* Téléphone */}
-            <Input
+            <FormInput<ContactFormData>
               type="tel"
               name="telephone"
               label="Téléphone"
               autoComplete="tel"
               register={register}
-              serverState={serverState}
-              control={control}
+              error={clientErrors.telephone?.message}
+              serverError={serverState?.fieldErrors?.telephone}
             />
-
           </div>
+
           {/* Choix du mode de contact */}
           <div className="text-center mt-5 mb-2">
-
-            <fieldset aria-describedby={clientErrors.wayToContact ? "wayToContact-error" : undefined}  >
-
+            <fieldset aria-describedby={clientErrors.wayToContact ? "wayToContact-error" : undefined}>
               <p className="mb-3 text-gray-400">
                 <legend>Par quel moyen préférez-vous être recontacté?*</legend>
               </p>
               <div className="flex justify-center text-center items-center gap-10 mb-3">
                 <div className="flex items-center">
-
                   <input
                     type="checkbox"
                     {...register("prefersEmail", {
                       onChange: () => {
-                        // ✅ Trigger seulement si déjà soumis
-                        if (isSubmitted) {
-                          trigger("wayToContact");
-                        }
+                        if (isSubmitted) trigger("wayToContact");
                       },
                     })}
                     id="prefersEmail"
                     className="cursor-pointer"
                   />
-                  <label
-                    htmlFor="prefersEmail"
-                    className="inline-block align-middle ml-2 text-gray-400"
-                  >
+                  <label htmlFor="prefersEmail" className="inline-block align-middle ml-2 text-gray-400">
                     Email
                   </label>
                 </div>
                 <div className="flex items-center">
-
                   <input
                     type="checkbox"
                     className="cursor-pointer"
-
                     {...register("prefersPhone", {
                       onChange: () => {
-                        // ✅ Trigger seulement si déjà soumis
                         if (isSubmitted) {
                           trigger("wayToContact");
                           trigger("telephone");
@@ -191,33 +163,26 @@ export default function ContactForm() {
                     })}
                     id="prefersPhone"
                   />
-                  <label
-                    htmlFor="prefersPhone"
-                    className="inline-block align-middle ml-2 text-gray-400"
-                  >
+                  <label htmlFor="prefersPhone" className="inline-block align-middle ml-2 text-gray-400">
                     Téléphone
                   </label>
                 </div>
               </div>
-
               {clientErrors?.wayToContact && (
                 <p id="wayToContact-error" className="formError" role="alert">{clientErrors.wayToContact.message}</p>
               )}
-              {serverState?.fieldErrors?.wayToContact &&
-                !clientErrors.wayToContact && (
-                  <p id="wayToContact-error" className="formError" role="alert">
-                    {serverState.fieldErrors.wayToContact}
-                  </p>
-                )}
+              {serverState?.fieldErrors?.wayToContact && !clientErrors.wayToContact && (
+                <p id="wayToContact-error" className="formError" role="alert">
+                  {serverState.fieldErrors.wayToContact}
+                </p>
+              )}
             </fieldset>
           </div>
-
-
 
           {/* Message */}
           <div className="w-full max-w-[700px] md:w-fit relative">
             <textarea
-              className="input peer  w-fit max-w-full"
+              className="input peer w-fit max-w-full"
               rows={8}
               cols={80}
               id="message"
@@ -226,21 +191,18 @@ export default function ContactForm() {
               aria-invalid={clientErrors.message ? "true" : "false"}
               aria-describedby={clientErrors.message ? "message-error" : undefined}
             />
-            <Label htmlFor="message">
-              Écrivez votre message*
-            </Label>
-            {/* Erreur client */}
+            <Label htmlFor="message">Écrivez votre message*</Label>
             {clientErrors?.message && (
               <p id="message-error" className="formError" role="alert">{clientErrors.message.message}</p>
             )}
-            {/* Erreur serveur */}
             {serverState?.fieldErrors?.message && !clientErrors.message && (
               <p id="message-error" className="formError" role="alert">{serverState?.fieldErrors.message}</p>
             )}
           </div>
-          {/* Bouton d'envoi */}{" "}
+
+          {/* Bouton d'envoi */}
           <div className="block min-w-[150px] mx-auto">
-            <Button disabled={isSubmitting || isSubmitting} type="submit" aria-label="Envoyer le message">
+            <Button disabled={isSubmitting || isPending} type="submit" aria-label="Envoyer le message">
               {isSubmitting || isPending ? (
                 <span className="flex items-center text-sand justify-center gap-2">
                   Envoi en cours... <span className="inline-block w-5 h-5 border-2 border-gray-300 border-t-transparent rounded-full animate-spin" />
@@ -250,11 +212,12 @@ export default function ContactForm() {
               )}
             </Button>
           </div>
+
           {/* Erreur serveur générale */}
           {serverState?.error && !serverState?.fieldErrors && (
             <div className="formError" role="alert">{serverState.error}</div>
           )}
-        </form >
+        </form>
       </>
     );
 }
