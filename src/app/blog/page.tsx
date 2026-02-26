@@ -1,4 +1,6 @@
 import { ArticleRepository } from "@/repositories/articleRepository";
+
+export const dynamic = "force-dynamic";
 import Section from "@/Components/UI/Section";
 import Container from "@/Components/UI/Container";
 import Card from "@/Components/UI/Card";
