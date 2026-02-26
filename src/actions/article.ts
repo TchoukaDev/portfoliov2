@@ -2,6 +2,7 @@
 
 import { auth } from "@/auth";
 import { articleSchema } from "@/lib/zod-schemas";
+import { ArticleRepository } from "@/repositories/articleRepository";
 import { ArticleService } from "@/services/articleService";
 import { ActionResponse } from "./types";
 import { revalidatePath } from "next/cache";
@@ -65,8 +66,9 @@ export async function createArticleAction(formData: FormData): Promise<ActionRes
     }
 
     // L'authorId provient de la session, jamais du formulaire client
-    await ArticleService.createArticle(result.data, user.id as string);
+    const article = await ArticleService.createArticle(result.data, user.id as string);
     revalidatePath("/blog");
+    revalidatePath(`/blog/${article.slug}`);
     revalidatePath("/admin/articles");
     return { success: true, message: "Article créé avec succès" };
   } catch (e) {
@@ -89,8 +91,9 @@ export async function updateArticleAction(id: string, formData: FormData): Promi
       return { success: false, error: "Données invalides", fieldErrors: formatZodErrors(result.error.issues) };
     }
 
-    await ArticleService.updateArticle(id, result.data);
+    const article = await ArticleService.updateArticle(id, result.data);
     revalidatePath("/blog");
+    revalidatePath(`/blog/${article.slug}`);
     revalidatePath("/admin/articles");
     return { success: true, message: "Article mis à jour" };
   } catch {
@@ -106,8 +109,10 @@ export async function updateArticleAction(id: string, formData: FormData): Promi
 export async function deleteArticleAction(id: string): Promise<ActionResponse> {
   try {
     await requireAuth();
+    const article = await ArticleRepository.getArticleById(id);
     await ArticleService.deleteArticle(id);
     revalidatePath("/blog");
+    if (article) revalidatePath(`/blog/${article.slug}`);
     revalidatePath("/admin/articles");
     return { success: true, message: "Article supprimé" };
   } catch {

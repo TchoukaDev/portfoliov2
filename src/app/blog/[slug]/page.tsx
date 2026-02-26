@@ -5,8 +5,6 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-export const dynamic = "force-dynamic";
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -20,6 +18,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: article.title,
     description: article.excerpt ?? undefined,
   };
+}
+
+export async function generateStaticParams() {
+  try {
+    const articles = await ArticleRepository.getPublishedArticles();
+    return articles.map((a) => ({ slug: a.slug }));
+  } catch {
+    return [];
+  }
 }
 
 export default async function BlogArticlePage({ params }: PageProps) {
