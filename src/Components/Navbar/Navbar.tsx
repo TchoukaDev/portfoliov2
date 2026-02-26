@@ -14,7 +14,7 @@ const navLinks = [
     { href: "/a-propos", label: "À propos" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
@@ -83,15 +83,25 @@ export default function Navbar() {
                                 </form>
                             </>
                         ) : (
-                            <Link
-                                href="/contact"
-                                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
-                                    ? "bg-blue-500 text-white border border-gray-300"
-                                    : "bg-blue-600 hover:bg-blue-500 text-white"
-                                    }`}
-                            >
-                                Contact
-                            </Link>
+                            <>
+                                {isAdmin && (
+                                    <Link
+                                        href="/admin"
+                                        className="text-sm text-gray-400 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5"
+                                    >
+                                        Admin
+                                    </Link>
+                                )}
+                                <Link
+                                    href="/contact"
+                                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
+                                        ? "bg-blue-500 text-white border border-gray-300"
+                                        : "bg-blue-600 hover:bg-blue-500 text-white"
+                                        }`}
+                                >
+                                    Contact
+                                </Link>
+                            </>
                         )}
                     </div>
 
@@ -156,16 +166,27 @@ export default function Navbar() {
                             </div>
                         </>
                     ) : (
-                        <Link
-                            href="/contact"
-                            onClick={handleLinkClick}
-                            className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
-                                ? "bg-blue-500 text-white"
-                                : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
-                                }`}
-                        >
-                            Contact
-                        </Link>
+                        <>
+                            {isAdmin && (
+                                <Link
+                                    href="/admin"
+                                    onClick={handleLinkClick}
+                                    className="block text-sm text-gray-400 hover:text-white transition-colors"
+                                >
+                                    Espace admin
+                                </Link>
+                            )}
+                            <Link
+                                href="/contact"
+                                onClick={handleLinkClick}
+                                className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
+                                    ? "bg-blue-500 text-white"
+                                    : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
+                                    }`}
+                            >
+                                Contact
+                            </Link>
+                        </>
                     )}
                 </div>
             </div>

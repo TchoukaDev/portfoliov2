@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
+import { auth } from "@/auth";
 
 export const dmSans = localFont({
   src: [
@@ -91,12 +92,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+  const isAdmin = session?.user?.isAdmin ?? false;
+
   return (
     <html lang="fr" className={`${raleway.variable} ${dmSans.variable}`}>
       <body className="relative flex flex-col justify-center font-raleway min-h-screen cursor-default">
 
-        <Navbar />
+        <Navbar isAdmin={isAdmin} />
         {children}
         <Footer />
         <Analytics />
