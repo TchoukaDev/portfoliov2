@@ -14,7 +14,7 @@ const navLinks = [
     { href: "/a-propos", label: "À propos" },
 ];
 
-export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
+export default function Navbar({ isLoggedIn, isAdmin }: { isLoggedIn: boolean; isAdmin: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
 
@@ -25,8 +25,6 @@ export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
         if (href === "/") return pathname === "/";
         return pathname.startsWith(href);
     };
-
-    const isOnAdmin = pathname.startsWith("/admin");
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/80 backdrop-blur-md border-b border-gray-800">
@@ -57,22 +55,17 @@ export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
                             </Link>
                         ))}
 
-                        {isOnAdmin ? (
-                            /* Liens admin : visibles uniquement quand l'utilisateur est connecté */
+                        {isLoggedIn && (
                             <>
                                 <div className="w-px h-4 bg-gray-700" aria-hidden="true" />
-                                <span className="text-xs font-medium text-blue-400 border border-blue-500/40 rounded px-2 py-0.5">
-                                    Admin
-                                </span>
-                                <Link
-                                    href="/admin/articles"
-                                    className={`text-sm transition-all duration-300 border-b-2 ${isActive("/admin/articles")
-                                        ? "text-blue-400 border-blue-500"
-                                        : "text-gray-400 hover:text-white border-transparent"
-                                        }`}
-                                >
-                                    Articles
-                                </Link>
+                                {isAdmin && (
+                                    <Link
+                                        href="/admin"
+                                        className="text-sm text-gray-400 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5"
+                                    >
+                                        Admin
+                                    </Link>
+                                )}
                                 <form action={logoutAction}>
                                     <button
                                         type="submit"
@@ -82,27 +75,17 @@ export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
                                     </button>
                                 </form>
                             </>
-                        ) : (
-                            <>
-                                {isAdmin && (
-                                    <Link
-                                        href="/admin"
-                                        className="text-sm text-gray-400 hover:text-white transition-colors border border-gray-700 hover:border-gray-500 rounded-lg px-3 py-1.5"
-                                    >
-                                        Admin
-                                    </Link>
-                                )}
-                                <Link
-                                    href="/contact"
-                                    className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
-                                        ? "bg-blue-500 text-white border border-gray-300"
-                                        : "bg-blue-600 hover:bg-blue-500 text-white"
-                                        }`}
-                                >
-                                    Contact
-                                </Link>
-                            </>
                         )}
+
+                        <Link
+                            href="/contact"
+                            className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${isActive("/contact")
+                                ? "bg-blue-500 text-white border border-gray-300"
+                                : "bg-blue-600 hover:bg-blue-500 text-white"
+                                }`}
+                        >
+                            Contact
+                        </Link>
                     </div>
 
                     {/* Burger (mobile) */}
@@ -140,33 +123,8 @@ export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
                         </Link>
                     ))}
 
-                    {isOnAdmin ? (
-                        /* Liens admin (mobile) */
-                        <>
-                            <div className="border-t border-gray-800 pt-4 space-y-4">
-                                <Link
-                                    href="/admin/articles"
-                                    onClick={handleLinkClick}
-                                    className={`block transition-all duration-300 border-b-2 ${isActive("/admin/articles")
-                                        ? "text-blue-400 border-blue-500"
-                                        : "text-gray-400 hover:text-white border-transparent"
-                                        }`}
-                                >
-                                    Articles
-                                </Link>
-                                <form action={logoutAction}>
-                                    <button
-                                        type="submit"
-                                        onClick={handleLinkClick}
-                                        className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
-                                    >
-                                        Déconnexion
-                                    </button>
-                                </form>
-                            </div>
-                        </>
-                    ) : (
-                        <>
+                    {isLoggedIn && (
+                        <div className="border-t border-gray-800 pt-4 space-y-4">
                             {isAdmin && (
                                 <Link
                                     href="/admin"
@@ -176,18 +134,28 @@ export default function Navbar({ isAdmin }: { isAdmin: boolean }) {
                                     Espace admin
                                 </Link>
                             )}
-                            <Link
-                                href="/contact"
-                                onClick={handleLinkClick}
-                                className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
-                                    ? "bg-blue-500 text-white"
-                                    : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
-                                    }`}
-                            >
-                                Contact
-                            </Link>
-                        </>
+                            <form action={logoutAction}>
+                                <button
+                                    type="submit"
+                                    onClick={handleLinkClick}
+                                    className="text-sm text-gray-400 hover:text-white transition-colors cursor-pointer"
+                                >
+                                    Déconnexion
+                                </button>
+                            </form>
+                        </div>
                     )}
+
+                    <Link
+                        href="/contact"
+                        onClick={handleLinkClick}
+                        className={`block px-4 py-3 text-center font-medium rounded-lg transition-colors ${isActive("/contact")
+                            ? "bg-blue-500 text-white"
+                            : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
+                            }`}
+                    >
+                        Contact
+                    </Link>
                 </div>
             </div>
         </nav>

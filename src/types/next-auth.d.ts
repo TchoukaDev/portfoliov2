@@ -7,6 +7,10 @@ declare module "next-auth" {
       isAdmin: boolean;
     } & DefaultSession["user"];
   }
+
+  interface User {
+    isAdmin?: boolean;
+  }
 }
 
 declare module "next-auth/jwt" {

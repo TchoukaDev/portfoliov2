@@ -18,16 +18,11 @@ export const authConfig: NextAuthConfig = {
   callbacks: {
     /**
      * Appelé par le middleware à chaque requête correspondant au matcher.
-     * Retourne `true` pour autoriser l'accès, `false` pour rediriger vers `/login`.
-     *
-     * Règle : toutes les routes `/admin/*` nécessitent une session active.
-     * Les autres routes sont publiques.
+     * Le matcher filtre déjà les routes protégées — on vérifie simplement
+     * qu'une session active existe.
      */
-    authorized({ auth, request: { nextUrl } }) {
-      const isLoggedIn = !!auth?.user;
-      const isOnAdmin = nextUrl.pathname.startsWith("/admin");
-      if (isOnAdmin) return isLoggedIn;
-      return true;
+    authorized({ auth }) {
+      return !!auth?.user;
     },
   },
 };

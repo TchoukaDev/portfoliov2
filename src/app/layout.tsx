@@ -94,13 +94,14 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
-  const isAdmin = session?.user?.isAdmin ?? false;
+  const isLoggedIn = !!session?.user;
+  const isAdmin = session?.user?.isAdmin === true;
 
   return (
     <html lang="fr" className={`${raleway.variable} ${dmSans.variable}`}>
       <body className="relative flex flex-col justify-center font-raleway min-h-screen cursor-default">
 
-        <Navbar isAdmin={isAdmin} />
+        <Navbar isLoggedIn={isLoggedIn} isAdmin={isAdmin} />
         {children}
         <Footer />
         <Analytics />
