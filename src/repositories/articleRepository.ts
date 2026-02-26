@@ -1,6 +1,6 @@
 import { db } from "@/lib/db";
 import { articles } from "@/db/schema";
-import { eq, desc } from "drizzle-orm";
+import { eq, desc, count } from "drizzle-orm";
 
 export class ArticleRepository {
   /**
@@ -14,6 +14,25 @@ export class ArticleRepository {
       orderBy: [desc(articles.createdAt)],
       with: { author: { columns: { firstname: true, name: true } } },
     });
+  }
+
+  /**
+   * Récupère une page d'articles publiés avec le total pour la pagination.
+   * Utilisé sur `/articles`.
+   */
+  static async getPublishedArticlesPaginated(page: number, limit: number) {
+    const offset = (page - 1) * limit;
+    const [items, [{ total }]] = await Promise.all([
+      db.query.articles.findMany({
+        where: eq(articles.published, true),
+        orderBy: [desc(articles.createdAt)],
+        with: { author: { columns: { firstname: true, name: true } } },
+        limit,
+        offset,
+      }),
+      db.select({ total: count() }).from(articles).where(eq(articles.published, true)),
+    ]);
+    return { items, total: Number(total) };
   }
 
   /**
