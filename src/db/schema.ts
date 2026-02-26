@@ -18,6 +18,8 @@ export const users = pgTable("users", {
   email: text("email").notNull().unique(),
   /** Mot de passe hashé avec bcrypt (jamais stocké en clair). */
   password: text("password").notNull(),
+  /** Indique si l'utilisateur a les droits administrateur. */
+  isAdmin: boolean("is_admin").default(false).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

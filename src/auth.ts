@@ -45,7 +45,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         const passwordMatch = await bcrypt.compare(password, user.password);
         if (!passwordMatch) return null;
 
-        return { id: user.id, email: user.email, name: `${user.firstname} ${user.name}` };
+        return { id: user.id, email: user.email, name: `${user.firstname} ${user.name}`, isAdmin: user.isAdmin };
       },
     }),
   ],
@@ -57,6 +57,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      */
     jwt({ token, user }) {
       if (user?.id) token.id = user.id;
+      if (user?.isAdmin !== undefined) token.isAdmin = user.isAdmin as boolean;
       return token;
     },
     /**
@@ -66,6 +67,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
      */
     session({ session, token }) {
       if (token.id) session.user.id = token.id as string;
+      session.user.isAdmin = token.isAdmin ?? false;
       return session;
     },
   },
