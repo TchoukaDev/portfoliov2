@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const articles = await ArticleRepository.getPublishedArticles();
+  const articles = await ArticleRepository.getPublishedArticles().catch(() => []);
 
   return (
     <main>
