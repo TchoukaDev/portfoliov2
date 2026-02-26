@@ -17,7 +17,7 @@ export default function ApplicationHero() {
 
             {/* Titre */}
             <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 max-w-3xl">
-                Intégration et applications web cadrées
+                Intégration et applications web
             </h1>
 
             {/* Sous-titre */}
