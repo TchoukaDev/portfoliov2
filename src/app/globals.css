@@ -56,7 +56,7 @@
 
  @layer components {
    .input {
-     @apply w-full max-w-full sm:w-[450px] border text-gray-300 font-semibold border-gray-800 rounded-xl px-4 pt-5 md:pt-7 pb-2 bg-gray-900/50 placeholder-transparent outline-blue-500
+     @apply w-[350px] block border text-gray-300 font-semibold border-gray-800 rounded-xl px-4 pt-5 md:pt-7 pb-2 bg-gray-900/50 placeholder-transparent outline-blue-500 mx-auto
    }
 
    .smallText {

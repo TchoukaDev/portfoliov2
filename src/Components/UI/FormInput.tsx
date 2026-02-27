@@ -31,20 +31,20 @@ export default function FormInput<T extends FieldValues>({
   register,
 }: FormInputProps<T>) {
   return (
-    <div className="relative">
-      <div className="relative">
-        <input
-          type={type}
-          id={name}
-          {...register(name)}
-          placeholder=" "
-          autoComplete={autoComplete}
-          className="input peer"
-          aria-invalid={error ? "true" : "false"}
-          aria-describedby={error || serverError ? `${name}-error` : undefined}
-        />
-        <Label htmlFor={name}>{label}</Label>
-      </div>
+    <div className="relative ">
+
+      <input
+        type={type}
+        id={name}
+        {...register(name)}
+        placeholder=" "
+        autoComplete={autoComplete}
+        className="input peer"
+        aria-invalid={error ? "true" : "false"}
+        aria-describedby={error || serverError ? `${name}-error` : undefined}
+      />
+      <Label htmlFor={name}>{label}</Label>
+
       {error && (
         <p id={`${name}-error`} className="formError" role="alert">
           {error}
