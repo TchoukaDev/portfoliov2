@@ -29,10 +29,8 @@ export default function ShortAbout() {
                     {/* Texte */}
                     <div>
                         <p className="text-gray-400 mb-6 max-w-xl">
-                            {/* eslint-disable-next-line */}
-                            Ancien cadre de santé, j&apos;ai choisi le développement web
-                            pour créer des outils utiles et concrets. Je mets la même rigueur
-                            dans mes projets que dans mon ancien métier.
+                            Ancien cadre de santé devenu développeur web, j&apos;ai gardé de ce métier l&apos;écoute, la rigueur et le sens du service.
+                            Ce sont ces mêmes qualités que j&apos;applique aujourd&apos;hui à chaque projet.
                         </p>
 
                         <Link
