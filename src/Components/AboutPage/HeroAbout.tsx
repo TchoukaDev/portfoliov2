@@ -25,7 +25,7 @@ export default function HeroAbout() {
                         alt="Romain Wirth"
                         fill
                         className="rounded-full object-cover"
-                        loading="lazy"
+                        priority
                         sizes="192px"
                     />
                 </div>
