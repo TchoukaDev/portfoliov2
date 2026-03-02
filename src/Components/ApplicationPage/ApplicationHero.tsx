@@ -6,9 +6,11 @@ export default function ApplicationHero() {
     return (
         <header className="relative min-h-[60vh] flex flex-col justify-center items-center text-center px-6 py-20">
 
+            {/* Halo étendu (moins marqué que la page d'accueil) */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-blue-600/8 blur-3xl rounded-full pointer-events-none" />
 
-            {/* Halo plus petit et plus transparent */}
-            <div className="absolute top-16 w-60 h-28 bg-blue-600/10 blur-3xl rounded-full" />
+            {/* Halo central */}
+            <div className="absolute top-16 w-60 h-28 bg-blue-600/12 blur-3xl rounded-full pointer-events-none" />
 
             {/* Badge */}
             <span className="hero-label">

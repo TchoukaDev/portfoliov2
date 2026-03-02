@@ -88,6 +88,7 @@
    background-color: transparent !important;
  }
 
+/* Déplace le background-position de gauche à droite en boucle — utilisé pour animer les dégradés des bordures de Section alternate */
  .gradient-xy {
    animation: gradient-xy 3s ease infinite;
  }
@@ -109,6 +110,7 @@
  }
 
  /* globals.css */
+ /* Déplace le background-position de 0% à 200% en boucle — utilisé pour la bordure animée bleue→violette→bleue */
  .animated-border {
    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6);
    background-size: 200% 100%;
@@ -124,3 +126,17 @@
      background-position: 200% 50%;
    }
  }
+
+/* Étend un élément de width 0 à 2rem — utilisé pour la ligne décorative sous le hero-label */
+@keyframes expand-x {
+  from { width: 0; }
+  to { width: 2rem; }
+}
+
+.animate-expand-x {
+  display: block;
+  height: 1px;
+  width: 0;
+  animation: expand-x 0.5s ease forwards;
+  animation-delay: 200ms;
+}

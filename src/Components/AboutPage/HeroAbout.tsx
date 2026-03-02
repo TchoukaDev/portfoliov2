@@ -5,8 +5,14 @@ import Container from "../UI/Container";
 export default function HeroAbout() {
     return (
         <header className="relative px-6 py-20">
-            <Container size="md" className="text-center">
 
+            {/* Halo étendu (moins marqué que la page d'accueil) */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-blue-600/8 blur-3xl rounded-full pointer-events-none" />
+
+            {/* Halo central */}
+            <div className="absolute top-16 left-1/2 -translate-x-1/2 w-60 h-28 bg-blue-600/12 blur-3xl rounded-full pointer-events-none" />
+
+            <Container size="md" className="text-center">
 
                 {/* Titre */}
                 <h1 className="mb-8">
@@ -24,7 +30,6 @@ export default function HeroAbout() {
                     />
                 </div>
 
-
                 <p className="text-2xl md:text-3xl font-bold text-white font-heading mb-4">Romain Wirth</p>
                 {/* Sous-titre */}
                 <p className="text-lg text-blue-400 mb-2">
@@ -36,6 +41,6 @@ export default function HeroAbout() {
                 </p>
 
             </Container>
-        </header >
+        </header>
     );
 }
