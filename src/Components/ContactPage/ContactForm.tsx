@@ -136,6 +136,7 @@ export default function ContactForm() {
               <div className="flex justify-center text-center items-center gap-10 mb-3">
                 <div className="flex items-center">
                   <input
+
                     type="checkbox"
                     {...register("prefersEmail", {
                       onChange: () => {
@@ -143,7 +144,7 @@ export default function ContactForm() {
                       },
                     })}
                     id="prefersEmail"
-                    className="cursor-pointer"
+                    className="cursor-pointer w-5 h-5"
                   />
                   <label htmlFor="prefersEmail" className="inline-block align-middle ml-2 text-gray-400">
                     Email
@@ -152,7 +153,7 @@ export default function ContactForm() {
                 <div className="flex items-center">
                   <input
                     type="checkbox"
-                    className="cursor-pointer"
+                    className="cursor-pointer  w-5 h-5"
                     {...register("prefersPhone", {
                       onChange: () => {
                         if (isSubmitted) {

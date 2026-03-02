@@ -177,7 +177,7 @@ export default function ArticleForm({ defaultValues, mode }: ArticleFormProps) {
           type="checkbox"
           id="published"
           {...register("published")}
-          className="cursor-pointer w-4 h-4"
+          className="cursor-pointer w-5 h-5"
         />
         <label htmlFor="published" className="text-gray-400 cursor-pointer">
           Publier l&apos;article
