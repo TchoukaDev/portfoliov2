@@ -7,6 +7,7 @@ export default function Testimonial() {
     return (
         <Section alternate={true} className="text-center max-w-4xl mx-auto">
             <Container size="md">
+                <h2 className="mb-8">Ce qu&apos;ils disent</h2>
                 <Quote className="text-blue-500 mb-4 -scale-x-100" />
                 <p className="text-lg md:text-xl text-gray-200 italic max-w-2xl mx-auto">
                     Consciencieux, très disponible, toujours à la recherche du meilleur compromis, notre site est devenu très rapidement une référence dans notre spécialité !

@@ -3,16 +3,19 @@ import Image from "next/image";
 import Link from "next/link";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
 
 export default function ShortAbout() {
     return (
-        <Section >
-            < Container size="md" >
+        <Section>
+            <Container size="md">
 
-                < div className="mx-auto flex flex-col md:flex-row items-center gap-10" >
+                <SectionHeader title="Qui suis-je ?" />
+
+                <div className="mx-auto flex flex-col items-center gap-8 text-center">
 
                     {/* Photo */}
-                    < div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden" >
+                    <div className="relative w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden">
                         <Image
                             src="/assets/images/photopro_blue.png"
                             alt="Romain Wirth"
@@ -21,17 +24,13 @@ export default function ShortAbout() {
                             loading="lazy"
                             sizes="(max-width: 768px) 128px, 160px"
                         />
-                    </div >
+                    </div>
 
                     {/* Texte */}
-                    < div className="text-center md:text-left" >
-                        <h2 className="text-xl md:text-2xl font-bold text-white mb-4">
-                            Qui suis-je ?
-                        </h2>
-
-                        <p className="text-gray-400 mb-6">
+                    <div>
+                        <p className="text-gray-400 mb-6 max-w-xl">
                             {/* eslint-disable-next-line */}
-                            Ancien cadre de santé, j'ai choisi le développement web
+                            Ancien cadre de santé, j&apos;ai choisi le développement web
                             pour créer des outils utiles et concrets. Je mets la même rigueur
                             dans mes projets que dans mon ancien métier.
                         </p>
@@ -42,10 +41,10 @@ export default function ShortAbout() {
                         >
                             En savoir plus sur mon parcours →
                         </Link>
-                    </div >
+                    </div>
 
-                </div >
-            </Container >
-        </Section >
+                </div>
+            </Container>
+        </Section>
     );
 }
