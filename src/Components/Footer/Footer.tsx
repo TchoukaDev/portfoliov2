@@ -73,7 +73,7 @@ export default function Footer() {
                             <span className="text-gray-700">|</span>
                             <a
                                 href="mailto:contact@romainwirth.fr"
-                                className="text-gray-300 hover:text-blue-400 transition-colors"
+                                className="text-blue-400 hover:text-blue-300 border border-blue-500/40 hover:border-blue-400 rounded-lg px-3 py-1 transition-colors"
                             >
                                 contact@romainwirth.fr
                             </a>
