@@ -24,12 +24,11 @@ export default function Hero() {
             </div>
 
             <h1 className="relative text-4xl md:text-6xl font-bold text-white mb-6">
-                Développeur web freelance
+                Des sites web professionnels qui travaillent pour vous
             </h1>
 
             <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-12">
-                {/* eslint-disable-next-line */}
-                Je crée des sites web professionnels pour les indépendants et petites entreprises, et j&apos;interviens sur des interfaces web pour les besoins techniques spécifiques.
+                Artisan, indépendant, petite entreprise — je conçois votre présence en ligne et interviens sur vos interfaces web selon vos besoins techniques.
             </p>
 
             <Button
