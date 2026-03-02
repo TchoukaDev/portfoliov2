@@ -3,6 +3,7 @@ import { MessageSquare, Code, GitBranch, Users } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
+import SectionDivider from "../UI/SectionDivider";
 export default function ApplicationApproach() {
   const points = [
     {
@@ -52,6 +53,7 @@ export default function ApplicationApproach() {
         </div>
 
       </Container>
+      <SectionDivider />
     </Section>
   );
 }

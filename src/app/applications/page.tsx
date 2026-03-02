@@ -2,6 +2,7 @@
 
 import ApplicationTarget from "@/Components/ApplicationPage/ApplicationTarget";
 import ApplicationApproach from "@/Components/ApplicationPage/ApplicationApproach";
+import ApplicationSteps from "@/Components/ApplicationPage/ApplicationSteps";
 import Stack from "@/Components/ApplicationPage/Stack";
 import ApplicationRealisations from "@/Components/ApplicationPage/ApplicationRealisations";
 import ApplicationCTA from "@/Components/ApplicationPage/ApplicationCTA";
@@ -36,6 +37,7 @@ export default function ApplicationPage() {
       <ApplicationTarget />
       <ApplicationServices />
       <ApplicationApproach />
+      <ApplicationSteps />
       <Stack />
       <ApplicationRealisations />
       <ApplicationCTA />
