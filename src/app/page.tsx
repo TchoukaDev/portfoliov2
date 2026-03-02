@@ -6,21 +6,22 @@ import FinalCTA from "@/Components/HomePage/FinalCTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Romain WIRTH | Développeur Web",
+  title: "Romain Wirth — Développeur web freelance",
   description:
-    "Portfolio de Romain WIRTH, développeur web. Création de sites web pour artisans, indépendants et petites entreprises. Un site clair, moderne et simple à gérer.",
+    "Romain Wirth, développeur web freelance en Haute-Marne. Je crée des sites web professionnels pour artisans, indépendants et petites entreprises. WordPress ou sur mesure.",
   keywords: [
-    "Romain WIRTH",
-    "développeur web",
+    "Romain Wirth",
+    "développeur web freelance",
+    "création site web",
     "site vitrine",
-    "landing page",
-    "sites web",
-    "Grand-Est",
+    "artisan",
+    "indépendant",
+    "petite entreprise",
+    "WordPress",
     "Haute-Marne",
+    "Nogent",
+    "Chaumont",
     "freelance",
-    "développement frontend",
-    "intégration web",
-
   ],
 };
 

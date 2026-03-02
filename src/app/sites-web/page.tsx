@@ -10,18 +10,21 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Création de site web",
   description:
-    "Création de sites web sur mesure pour artisans, indépendants et petites entreprises. Sites vitrines modernes, rapides et optimisés pour le référencement. WordPress ou sur mesure.",
+    "Création de sites web professionnels pour artisans, indépendants et commerçants en Haute-Marne. WordPress ou sur mesure, adapté à votre budget. Premier échange gratuit.",
   keywords: [
     "création site web",
     "site vitrine",
-    "landing page",
+    "refonte site web",
     "artisan",
     "indépendant",
+    "commerçant",
     "petite entreprise",
     "WordPress",
+    "sur mesure",
     "Haute-Marne",
+    "Nogent",
     "Chaumont",
-    "Romain WIRTH",
+    "Romain Wirth",
   ],
 };
 

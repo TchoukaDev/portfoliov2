@@ -28,7 +28,7 @@ export default function Hero() {
             </h1>
 
             <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-12">
-                Artisan, indépendant, petite entreprise — je conçois votre présence en ligne et interviens sur vos interfaces web selon vos besoins techniques.
+                Artisan, indépendant, petite entreprise — Je conçois votre présence en ligne et interviens sur vos interfaces web selon vos besoins techniques.
             </p>
 
             <Button

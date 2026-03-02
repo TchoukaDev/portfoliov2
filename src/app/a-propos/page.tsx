@@ -9,17 +9,15 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "Découvrez le parcours de Romain WIRTH, développeur web freelance passionné. Mon approche, mes compétences et ma vision du développement web moderne.",
+    "Ancien cadre de santé devenu développeur web freelance, Romain Wirth met son écoute et sa rigueur au service de vos projets web. Basé en Haute-Marne.",
   keywords: [
-    "à propos",
-    "Romain WIRTH",
-    "écoute",
-    "rigueur",
-    "pédagogie",
-    "fiabilité",
-    "développeur web",
+    "Romain Wirth",
+    "développeur web freelance",
+    "parcours",
+    "cadre de santé",
     "Haute-Marne",
-    "Chaumont"
+    "Nogent",
+    "freelance",
   ],
 };
 

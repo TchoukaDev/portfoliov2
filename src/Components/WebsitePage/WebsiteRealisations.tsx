@@ -12,7 +12,7 @@ export default function WebsiteRealisations() {
             description: "Landing page professionnelle pour une psychologue, conçue pour présenter l'activité, inspirer confiance et faciliter la prise de contact.",
             image: "/projects/clothilde-baudet.png",
             url: "https://clothilde-baudet.fr/",
-            stack: "Next.js, Tailwind CSS",
+            stack: "WordPress",
         },
         {
             title: "Les Randonneurs des Sables",

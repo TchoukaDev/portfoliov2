@@ -39,30 +39,30 @@ const raleway = localFont({
 
 export const metadata: Metadata = {
   title: {
-    default: "Romain WIRTH | Développeur Web",
-    template: "%s | Portfolio de Romain WIRTH",
+    default: "Romain Wirth — Développeur web freelance",
+    template: "%s | Romain Wirth",
   },
   description:
-    "Portfolio de Romain WIRTH, développeur web. Création de sites web pour artisans, indépendants et petites entreprises. Un site clair, moderne et simple à gérer.",
-  // "Portfolio de Romain WIRTH, développeur web spécialisé en React, Next.js et JavaScript moderne. Découvrez mes projets, mes compétences et contactez-moi pour collaborer.",
+    "Romain Wirth, développeur web freelance en Haute-Marne. Création de sites web pour artisans, indépendants et petites entreprises. WordPress ou sur mesure, adapté à votre budget.",
   keywords: [
-    "Romain WIRTH",
-    "développeur web",
+    "Romain Wirth",
+    "développeur web freelance",
+    "création site web",
+    "site vitrine",
     "artisan",
     "indépendant",
     "petite entreprise",
-    "site vitrine",
-    "Haute-Marne",
-    "freelance",
     "WordPress",
+    "Haute-Marne",
+    "Nogent",
+    "Chaumont",
   ],
   openGraph: {
-    title: "Romain WIRTH | Développeur Web",
+    title: "Romain Wirth — Développeur web freelance",
     description:
-      "Romain Wirth, développeur web freelance. Création de sites web pour artisans, indépendants et petites entreprises. Un site clair, moderne et simple à gérer.",
-    // "Découvrez mes projets et compétences en développement web moderne avec React et Next.js.",
+      "Romain Wirth, développeur web freelance en Haute-Marne. Création de sites web pour artisans, indépendants et petites entreprises. WordPress ou sur mesure.",
     url: "https://romainwirth.fr",
-    siteName: "Portfolio de Romain WIRTH",
+    siteName: "Romain Wirth — Développeur web freelance",
     images: [
       {
         url: "https://romainwirth.fr/og-image.jpg", // ton image d’aperçu

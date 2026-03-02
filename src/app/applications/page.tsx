@@ -11,22 +11,22 @@ import ApplicationServices from "@/Components/ApplicationPage/ApplicationService
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Développement d'application web",
+  title: "Développement web sur mesure",
   description:
-    "Développement d'applications web modernes et performantes avec React, Next.js et TypeScript. Solutions sur mesure adaptées à vos besoins métier.",
+    "Développement d'interfaces web et d'applications sur mesure avec React et Next.js. MVP, sites dynamiques, intégration frontend. Basé en Haute-Marne, disponible à distance.",
   keywords: [
+    "développement web sur mesure",
     "application web",
-    "landing page",
-    "sites web",
+    "interface web",
     "React",
     "Next.js",
     "TypeScript",
-    "Grand-Est",
-    "développeur web",
+    "MVP",
     "CMS headless",
-    "développement frontend",
-    "intégration web",
-    "interfaces web",
+    "développeur frontend",
+    "Haute-Marne",
+    "Nogent",
+    "Romain Wirth",
   ],
 };
 
