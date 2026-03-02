@@ -4,7 +4,7 @@ import Container from "../UI/Container";
 
 export default function HeroAbout() {
     return (
-        <header className="relative px-6 py-20">
+        <header className="relative overflow-hidden px-6 py-20">
 
             {/* Halo étendu (moins marqué que la page d'accueil) */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[400px] h-[200px] bg-blue-600/8 blur-3xl rounded-full pointer-events-none" />

@@ -7,7 +7,7 @@ import SectionDivider from "../UI/SectionDivider";
 // components/Hero.tsx
 export default function Hero() {
     return (
-        <header className="relative min-h-[70vh] flex flex-col justify-center items-center text-center px-6 py-20">
+        <header className="relative overflow-hidden min-h-[70vh] flex flex-col justify-center items-center text-center px-6 py-20">
 
             {/* Halo étendu (gradient radial large) */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-blue-600/10 blur-3xl rounded-full pointer-events-none" />
