@@ -9,13 +9,16 @@ export default function AboutCTA() {
     return (
         <Section className="text-center">
             <Container size="sm">
-                <SectionHeader title="Envie de travailler ensemble ?" subtitle=" Discutons de votre projet. Premier échange gratuit et sans engagement." />
+                <SectionHeader title="Envie de travailler ensemble ?" subtitle="Discutons de votre projet. Premier échange gratuit et sans engagement." />
 
-                <Button asChild>
-                    <Link href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors">
-                        Me contacter
-                    </Link>
-                </Button>
+                <div>
+                    <Button asChild>
+                        <Link href="/contact" className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors">
+                            Démarrer mon projet
+                        </Link>
+                    </Button>
+                    <p className="text-xs text-gray-500 mt-3">Réponse sous 48h</p>
+                </div>
             </Container>
         </Section>
     );

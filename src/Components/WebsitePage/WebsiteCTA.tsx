@@ -6,21 +6,24 @@ export default function WebsiteCTA() {
     return (
         <Section className="px-6 py-20 text-center">
 
-            < h2 className="text-2xl md:text-3xl font-bold text-white mb-4" >
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
                 Prêt à avoir un site qui vous ressemble ?
-            </h2 >
+            </h2>
 
-            <p className="text-gray-400 mb-8 max-w-md mx-auto">
+            <p className="text-gray-400 mb-6 max-w-md mx-auto">
                 Premier échange gratuit, sans engagement.
                 Parlons de votre projet.
             </p>
 
-            <Link
-                href="/contact"
-                className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors"
-            >
-                Me contacter
-            </Link>
+            <div>
+                <Link
+                    href="/contact"
+                    className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-colors"
+                >
+                    Démarrer mon projet
+                </Link>
+                <p className="text-xs text-gray-500 mt-3">Réponse sous 48h</p>
+            </div>
 
         </Section>
     );

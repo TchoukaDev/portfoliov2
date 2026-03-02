@@ -9,13 +9,16 @@ export default function FinalCTA() {
     return (
         <Section className="text-center">
             <Container size="md">
-                <SectionHeader title="Un projet en tête ?" subtitle="Discutons-en. Premier échange gratuit et sans engagement." />
+                <SectionHeader title="Un projet en tête ?" subtitle="Premier échange gratuit et sans engagement." />
 
-                <Button asChild>
-                    <Link href="/contact">
-                        Me contacter
-                    </Link>
-                </Button>
+                <div>
+                    <Button asChild>
+                        <Link href="/contact">
+                            Démarrer mon projet
+                        </Link>
+                    </Button>
+                    <p className="text-xs text-gray-500 mt-3">Réponse sous 48h</p>
+                </div>
             </Container>
         </Section>
     );

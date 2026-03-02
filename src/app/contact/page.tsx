@@ -8,7 +8,7 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Contact",
     description:
-        "Contactez Romain WIRTH pour votre projet web. Réponse sous 24 heures. Disponible par email ou téléphone pour discuter de vos besoins en développement web.",
+        "Contactez Romain WIRTH pour votre projet web. Réponse sous 48 heures. Disponible par email ou téléphone pour discuter de vos besoins en développement web.",
     keywords: [
         "contact",
         "Romain WIRTH",
@@ -33,7 +33,7 @@ export default function ContactPage() {
                             Contactez-moi
                         </h1>
                         <p className="text-gray-400">
-                            Une question, un projet ? Écrivez-moi, je vous réponds sous 24 heures.
+                            Une question, un projet ? Écrivez-moi, je vous réponds sous 48 heures.
                         </p>
                     </div>
 
