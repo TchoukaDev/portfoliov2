@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     siteName: "Romain Wirth — Développeur web freelance",
     images: [
       {
-        url: "https://romainwirth.fr/og-image.jpg", // ton image d’aperçu
+        url: "https://romainwirth.fr/og-image.png", // ton image d’aperçu
         width: 1200,
         height: 630,
         alt: "Aperçu du portfolio de Romain WIRTH",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       "Portfolio de Romain Wirth, développeur web. Création de sites web pour artisans, indépendants et petites entreprises. Un site clair, moderne et simple à gérer.",
     // "Portfolio de Romain Wirth, développeur web spécialisé en React et Nextjs.",
     creator: "@romainwirth",
-    images: ["https://romainwirth.fr/og-image.jpg"],
+    images: ["https://romainwirth.fr/og-image.png"],
   },
   robots: {
     index: true,
