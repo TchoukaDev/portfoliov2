@@ -1,37 +1,27 @@
-// components/site-web/RealisationsVitrines.tsx
+// components/HomePage/RealisationsTeaser.tsx
 import Image from "next/image";
+import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
+import { projects } from "@/lib/projects";
 
-export default function WebsiteRealisations() {
-    const projets = [
-        {
-            title: "Clothilde Baudet",
-            description: "Landing page professionnelle pour une psychologue, conçue pour présenter l'activité, inspirer confiance et faciliter la prise de contact.",
-            image: "/projects/clothilde-baudet.png",
-            url: "https://clothilde-baudet.fr/",
-            stack: "WordPress",
-        },
-        {
-            title: "Les Randonneurs des Sables",
-            description: "Site dynamique avec espace membres, planning des activités et gestion de contenu.",
-            image: "/projects/lesrandonneurs.png",
-            url: "https://les-randonneurs-des-sables.vercel.app/",
-            stack: "Next.js, Strapi",
-        },
-    ];
+export default function RealisationsTeaser() {
+    const featured = projects.slice(0, 3);
 
     return (
         <Section alternate>
-            <Container size="md">
-                <SectionHeader title="Sites réalisés" subtitle="Des sites livrés, en ligne et utilisés au quotidien." />
+            <Container size="lg">
+                <SectionHeader
+                    title="Sites réalisés"
+                    subtitle="Des sites livrés, en ligne et utilisés au quotidien."
+                />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {projets.map((projet, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {featured.map((projet) => (
                         <a
-                            key={index}
+                            key={projet.id}
                             href={projet.url}
                             target="_blank"
                             rel="noopener noreferrer"
@@ -45,7 +35,7 @@ export default function WebsiteRealisations() {
                                     fill
                                     className="object-cover"
                                     loading="lazy"
-                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
                                 />
                             </div>
 
@@ -63,15 +53,19 @@ export default function WebsiteRealisations() {
                                     </p>
                                 </div>
 
-                                <div className="flex items-center justify-between mt-4">
-                                    <span className="text-xs text-blue-400">{projet.stack}</span>
-                                    <span className="text-xs px-2 py-0.5 rounded-full whitespace-nowrap bg-blue-500/10 text-blue-400">
-                                        Projet client
-                                    </span>
-                                </div>
+                                <span className="text-xs text-blue-400 mt-4">{projet.stack}</span>
                             </div>
                         </a>
                     ))}
+                </div>
+
+                <div className="text-center mt-12">
+                    <Link
+                        href="/realisations"
+                        className="text-blue-400 hover:text-blue-300 text-sm font-medium"
+                    >
+                        Voir toutes mes réalisations →
+                    </Link>
                 </div>
             </Container>
         </Section>

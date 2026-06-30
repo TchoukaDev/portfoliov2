@@ -1,11 +1,11 @@
-// components/site-web/Services.tsx
+// components/HomePage/Solutions.tsx
 import { Layers, Zap } from "lucide-react";
 import Section from "../UI/Section";
 import Card from "../UI/Card";
 import SectionHeader from "../UI/SectionHeader";
 import Container from "../UI/Container";
 
-export default function WebsiteServices() {
+export default function Solutions() {
   const solutions = [
     {
       icon: <Layers size={28} />,

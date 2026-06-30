@@ -17,18 +17,18 @@ export default function Hero() {
 
             {/* Label + ligne décorative */}
             <div className="flex flex-col items-center mb-6">
-                <p className="hero-label !mb-2">
-                    Romain Wirth
-                </p>
+                <span className="hero-label !mb-2 block">
+                    Créateur de sites internet en Haute-Marne
+                </span>
                 <span className="bg-blue-500/60 animate-expand-x" />
             </div>
 
             <h1 className="relative text-4xl md:text-6xl font-bold text-white mb-6">
-                Des sites web professionnels qui travaillent pour vous
+                Attirez vos futurs clients avec un site web moderne et performant qui met en valeur votre expertise
             </h1>
 
             <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-12">
-                Artisan, indépendant, petite entreprise — Je conçois votre présence en ligne et interviens sur vos interfaces web selon vos besoins techniques.
+                Artisan, indépendant, petite entreprise — Je conçois votre présence en ligne : un site qui vous ressemble, facile à gérer et pensé pour vos clients.
             </p>
 
             <Button
@@ -37,14 +37,14 @@ export default function Hero() {
                         e.preventDefault();
                     }
 
-                    const services = document.getElementById("services");
-                    if (services) {
-                        services.scrollIntoView({ behavior: "smooth" });
+                    const target = document.getElementById("offre");
+                    if (target) {
+                        target.scrollIntoView({ behavior: "smooth" });
                     }
                 }}
                 variant="primary"
             >
-                Découvrir mes services ↓
+                Découvrir mon offre ↓
             </Button>
             <SectionDivider />
         </header>

@@ -31,9 +31,9 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
       firstname: formData.get("firstname"),
       name: formData.get("name"),
       email: formData.get("email"),
-      telephone: formData.get("telephone"),
-      prefersPhone: formData.get("prefersPhone") === "true", //convertir en boolean
-      prefersEmail: formData.get("prefersEmail") === "true",
+      projectType: formData.get("projectType"),
+      activity: formData.get("activity") || undefined,
+      deadline: formData.get("deadline") || undefined,
       message: formData.get("message"),
     };
     // Validation Zod
@@ -62,15 +62,15 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
         firstname: validatedData.firstname,
         name: validatedData.name,
         email: validatedData.email,
-        telephone: validatedData.telephone,
-        prefersPhone: validatedData.prefersPhone,
-        prefersEmail: validatedData.prefersEmail,
+        projectType: validatedData.projectType,
+        activity: validatedData.activity,
+        deadline: validatedData.deadline,
         message: validatedData.message,
       }),
     );
 
     // 5. Envoyer l'email avec Resend
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: "Formulaire de Contact <contact@romainwirth.fr>",
       to: [process.env.EMAIL_TO],
       replyTo: validatedData.email,

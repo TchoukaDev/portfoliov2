@@ -9,8 +9,7 @@ import { logoutAction } from "@/actions/auth";
 
 const navLinks = [
     { href: "/", label: "Accueil" },
-    { href: "/sites-web", label: "Sites web" },
-    { href: "/applications", label: "Applications" },
+    { href: "/realisations", label: "Réalisations" },
     { href: "/a-propos", label: "À propos" },
 ];
 

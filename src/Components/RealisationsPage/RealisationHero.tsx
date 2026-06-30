@@ -16,9 +16,7 @@ export default function RealisationHero() {
             </h1>
 
             <p className="text-lg text-gray-400 max-w-xl mx-auto">
-                Sites vitrines, applications sur mesure :
-                {/* eslint-disable-next-line */}
-                découvrez les projets que j&apos;ai réalisés.
+                Sites vitrines, sites dynamiques, e-commerce : découvrez les sites que j&apos;ai réalisés.
             </p>
             <SectionDivider />
         </header>

@@ -7,7 +7,7 @@ export default function Label({ children, ...props }: LabelProps) {
     <label
       {...props}
       className={`
-        absolute left-3 transition-all bg-transparent cursor-text italic
+        absolute left-3 transition-all bg-transparent cursor-text
         
         /* État par défaut : placeholder visible (input vide) */
         peer-placeholder-shown:top-4 

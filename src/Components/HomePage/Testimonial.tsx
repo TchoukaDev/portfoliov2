@@ -13,6 +13,8 @@ const testimonials = [
         author: "Clothilde Baudet",
         role: "Psychologue clinicienne",
     },
+    // TODO: ajouter ici tes nouveaux témoignages au même format :
+    // { quote: "", author: "", role: "" },
 ];
 
 // components/Testimonial.tsx

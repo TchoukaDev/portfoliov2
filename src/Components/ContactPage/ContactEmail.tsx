@@ -18,9 +18,9 @@ export default function ContactEmail({
   firstname,
   name,
   email,
-  telephone,
-  prefersPhone,
-  prefersEmail,
+  projectType,
+  activity,
+  deadline,
   message,
 }: ContactFormData) {
   const date = new Date().toLocaleDateString("fr-FR", {
@@ -78,58 +78,49 @@ export default function ContactEmail({
                 </Column>
               </Row>
 
-              {telephone && (
+              <Hr className="border-slate-100 my-6" />
+
+              {/* Projet */}
+              <Text className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mt-0 mb-4">
+                Projet
+              </Text>
+
+              <Row className="mb-3">
+                <Column className="w-[120px]">
+                  <Text className="text-xs text-slate-400 font-medium m-0 uppercase tracking-wide">Type</Text>
+                </Column>
+                <Column>
+                  <Text className="text-sm text-slate-900 font-semibold m-0">
+                    {projectType}
+                  </Text>
+                </Column>
+              </Row>
+
+              {activity && (
                 <Row className="mb-3">
                   <Column className="w-[120px]">
-                    <Text className="text-xs text-slate-400 font-medium m-0 uppercase tracking-wide">Téléphone</Text>
+                    <Text className="text-xs text-slate-400 font-medium m-0 uppercase tracking-wide">Activité</Text>
                   </Column>
                   <Column>
-                    <Link href={`tel:${telephone}`} className="text-sm text-indigo-600 font-medium no-underline">
-                      {telephone}
-                    </Link>
+                    <Text className="text-sm text-slate-900 font-semibold m-0">
+                      {activity}
+                    </Text>
                   </Column>
                 </Row>
               )}
 
-              <Hr className="border-slate-100 my-6" />
-
-              {/* Préférences de contact */}
-              <Text className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mt-0 mb-4">
-                Préférence de contact
-              </Text>
-
-              <Row>
-                <Column className="w-[50%] pr-2">
-                  {prefersPhone ? (
-                    <Section className="bg-emerald-50 rounded-xl px-4 py-3 text-center">
-                      <Text className="text-sm font-semibold text-emerald-700 m-0">
-                        ✓ Téléphone
-                      </Text>
-                    </Section>
-                  ) : (
-                    <Section className="bg-slate-50 rounded-xl px-4 py-3 text-center">
-                      <Text className="text-sm font-semibold text-slate-300 m-0">
-                        ✗ Téléphone
-                      </Text>
-                    </Section>
-                  )}
-                </Column>
-                <Column className="w-[50%] pl-2">
-                  {prefersEmail ? (
-                    <Section className="bg-emerald-50 rounded-xl px-4 py-3 text-center">
-                      <Text className="text-sm font-semibold text-emerald-700 m-0">
-                        ✓ Email
-                      </Text>
-                    </Section>
-                  ) : (
-                    <Section className="bg-slate-50 rounded-xl px-4 py-3 text-center">
-                      <Text className="text-sm font-semibold text-slate-300 m-0">
-                        ✗ Email
-                      </Text>
-                    </Section>
-                  )}
-                </Column>
-              </Row>
+              {deadline && (
+                <Row className="mb-3">
+                  <Column className="w-[120px]">
+                    <Text className="text-xs text-slate-400 font-medium m-0 uppercase tracking-wide">Échéance</Text>
+                  </Column>
+                  <Column>
+                    <Text className="text-sm text-slate-900 font-semibold m-0">
+                      {deadline}
+                    </Text>
+                  </Column>
+                </Row>
+              )}
 
               <Hr className="border-slate-100 my-6" />
 
