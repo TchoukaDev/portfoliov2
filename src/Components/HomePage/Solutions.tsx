@@ -1,73 +1,75 @@
 // components/HomePage/Solutions.tsx
-import { Layers, Zap } from "lucide-react";
+import { Check, KeyRound } from "lucide-react";
 import Section from "../UI/Section";
-import Card from "../UI/Card";
-import SectionHeader from "../UI/SectionHeader";
 import Container from "../UI/Container";
+import SectionHeader from "../UI/SectionHeader";
+
+const inclusions = [
+  {
+    title: "Design unique à votre image",
+    description: "Une identité visuelle qui vous ressemble, pensée pour votre activité.",
+  },
+  {
+    title: "100 % responsive",
+    description: "Parfaitement adapté à l'ordinateur, la tablette et le mobile.",
+  },
+  {
+    title: "Optimisé pour Google",
+    description: "Structure et performances au service de votre référencement local.",
+  },
+  {
+    title: "Rapide et performant",
+    description: "Un site léger, conçu sur mesure, qui se charge en un instant.",
+  },
+  {
+    title: "Sécurisé",
+    description: "Bonnes pratiques de sécurité et connexion HTTPS.",
+  },
+  {
+    title: "Formation à la prise en main",
+    description: "Je vous montre comment gérer et faire vivre votre site.",
+  },
+];
 
 export default function Solutions() {
-  const solutions = [
-    {
-      icon: <Layers size={28} />,
-      title: "WordPress",
-      badge: "Simple & accessible",
-      description: "Idéal si vous voulez gérer votre contenu vous-même au quotidien. Solution éprouvée, rapide à mettre en place, adaptée aux budgets serrés.",
-      points: [
-        "Prise en main facile",
-        "Budget maîtrisé",
-        "Mise en ligne rapide",
-      ],
-    },
-    {
-      icon: <Zap size={28} />,
-      title: "Sur mesure",
-      badge: "Performant & évolutif",
-      description: "Pour un site rapide, bien référencé et pensé pour évoluer avec votre activité. Conçu avec des technologies modernes, sans les contraintes d'un CMS générique.",
-      points: [
-        "Performances et SEO optimisés",
-        "Design entièrement personnalisé",
-        "Évolutif selon vos besoins",
-      ],
-    },
-  ];
-
   return (
     <Section alternate={true}>
-      <Container size="md">
-
+      <Container size="lg">
         <SectionHeader
-          title="Quelle solution pour votre site ?"
-          subtitle="Je vous conseille l'approche la mieux adaptée à votre projet et votre budget."
+          title="Un site 100 % sur mesure"
+          subtitle="Pas de template générique : votre site est conçu sur mesure, avec des technologies modernes, pour être rapide, bien référencé et évoluer avec votre activité."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {solutions.map((solution, index) => (
-            <Card hover={false} key={index}>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 rounded-xl bg-blue-500/10 text-blue-400 w-fit">
-                  {solution.icon}
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold text-white">{solution.title}</h3>
-                  <span className="text-xs text-blue-400">{solution.badge}</span>
-                </div>
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+          {inclusions.map((item, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <span className="mt-1 shrink-0 rounded-full bg-blue-500/20 p-1 text-blue-400">
+                <Check size={16} />
+              </span>
+              <div>
+                <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                <p className="text-sm text-gray-400">{item.description}</p>
               </div>
-
-              <p className="text-gray-400 text-sm mb-4">
-                {solution.description}
-              </p>
-
-              <ul className="space-y-1">
-                {solution.points.map((point, i) => (
-                  <li key={i} className="text-sm text-gray-400 flex items-center gap-2">
-                    <span className="text-blue-500">✓</span> {point}
-                  </li>
-                ))}
-              </ul>
-            </Card>
+            </div>
           ))}
         </div>
 
+        {/* Argument principal : la propriété */}
+        <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-blue-500/40 bg-blue-500/10 p-6 sm:flex-row sm:items-center">
+          <span className="shrink-0 rounded-xl bg-blue-500/20 p-3 text-blue-400">
+            <KeyRound size={24} />
+          </span>
+          <div>
+            <h3 className="mb-1 text-lg font-semibold text-white">
+              Vous restez 100 % propriétaire
+            </h3>
+            <p className="text-sm text-gray-300">
+              Le code, le nom de domaine et l&apos;hébergement sont à vous, à votre
+              nom. Je m&apos;occupe uniquement de la configuration et de la
+              maintenance : aucune dépendance, vous gardez la main sur votre site.
+            </p>
+          </div>
+        </div>
       </Container>
     </Section>
   );

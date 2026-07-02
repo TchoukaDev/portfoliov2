@@ -28,8 +28,8 @@ export default function Hero() {
       </h1>
 
       <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-12">
-        Artisan, indépendant ou entreprise - je conçois votre site sur-mesure
-        pour développer votre présence en ligne.
+        Artisan, indépendant ou entreprise, je conçois votre site sur-mesure
+        pour développer votre présence en ligne et attirer vos futurs clients.
       </p>
 
       <Button

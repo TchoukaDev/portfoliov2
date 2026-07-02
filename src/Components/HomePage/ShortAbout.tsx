@@ -4,6 +4,7 @@ import Link from "next/link";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
+import SectionDivider from "../UI/SectionDivider";
 
 export default function ShortAbout() {
     return (
@@ -43,6 +44,7 @@ export default function ShortAbout() {
 
                 </div>
             </Container>
+            <SectionDivider />
         </Section>
     );
 }

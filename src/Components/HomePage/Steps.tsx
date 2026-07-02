@@ -1,4 +1,5 @@
 import Section from "../UI/Section";
+import SectionDivider from "../UI/SectionDivider";
 
 // components/HomePage/Steps.tsx
 export default function Steps() {
@@ -68,6 +69,7 @@ export default function Steps() {
         </div>
 
       </div>
+      <SectionDivider />
     </Section>
   );
 }

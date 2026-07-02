@@ -1,10 +1,15 @@
 import Hero from "@/Components/HomePage/Hero";
+import ReassuranceBar from "@/Components/HomePage/ReassuranceBar";
 import Target from "@/Components/HomePage/Target";
+import Benefits from "@/Components/HomePage/Benefits";
 import Solutions from "@/Components/HomePage/Solutions";
-import Steps from "@/Components/HomePage/Steps";
 import RealisationsTeaser from "@/Components/HomePage/RealisationsTeaser";
+import Stats from "@/Components/HomePage/Stats";
 import Testimonial from "@/Components/HomePage/Testimonial";
+import Pricing from "@/Components/HomePage/Pricing";
+import Steps from "@/Components/HomePage/Steps";
 import ShortAbout from "@/Components/HomePage/ShortAbout";
+import FAQ from "@/Components/HomePage/FAQ";
 import FinalCTA from "@/Components/HomePage/FinalCTA";
 import { Metadata } from "next";
 
@@ -32,12 +37,17 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <ReassuranceBar />
+      <Stats />
       <Target />
+      <Benefits />
       <Solutions />
-      <Steps />
       <RealisationsTeaser />
       <Testimonial />
+      <Pricing />
+      <Steps />
       <ShortAbout />
+      <FAQ />
       <FinalCTA />
     </main>
   );
