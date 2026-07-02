@@ -7,19 +7,23 @@ import SectionHeader from "../UI/SectionHeader";
 const inclusions = [
   {
     title: "Design unique à votre image",
-    description: "Une identité visuelle qui vous ressemble, pensée pour votre activité.",
+    description:
+      "Une identité visuelle qui vous ressemble, pensée pour votre activité.",
   },
   {
     title: "100 % responsive",
-    description: "Parfaitement adapté à l'ordinateur, la tablette et le mobile.",
+    description:
+      "Parfaitement adapté à l'ordinateur, la tablette et le mobile.",
   },
   {
     title: "Optimisé pour Google",
-    description: "Structure et performances au service de votre référencement local.",
+    description:
+      "Structure et performances au service de votre référencement local.",
   },
   {
     title: "Rapide et performant",
-    description: "Un site léger, conçu sur mesure, qui se charge en un instant.",
+    description:
+      "Un site léger, conçu sur mesure, qui se charge en un instant.",
   },
   {
     title: "Sécurisé",
@@ -27,7 +31,8 @@ const inclusions = [
   },
   {
     title: "Formation à la prise en main",
-    description: "Je vous montre comment gérer et faire vivre votre site.",
+    description:
+      "Je vous montre comment modifier vos textes et vos images pour faire vivre votre site",
   },
 ];
 
@@ -47,7 +52,9 @@ export default function Solutions() {
                 <Check size={16} />
               </span>
               <div>
-                <h3 className="text-base font-semibold text-white">{item.title}</h3>
+                <h3 className="text-base font-semibold text-white">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-gray-400">{item.description}</p>
               </div>
             </div>
@@ -64,9 +71,10 @@ export default function Solutions() {
               Vous restez 100 % propriétaire
             </h3>
             <p className="text-sm text-gray-300">
-              Le code, le nom de domaine et l&apos;hébergement sont à vous, à votre
-              nom. Je m&apos;occupe uniquement de la configuration et de la
-              maintenance : aucune dépendance, vous gardez la main sur votre site.
+              Le code, le nom de domaine et l&apos;hébergement sont à vous, à
+              votre nom. Je m&apos;occupe uniquement de la configuration et de
+              la maintenance : aucune dépendance, vous gardez la main sur votre
+              site.
             </p>
           </div>
         </div>

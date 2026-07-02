@@ -36,10 +36,10 @@ export default function Home() {
     <main>
       <Hero />
       <Target />
-      <Benefits />
-      <Solutions />
       <RealisationsTeaser />
+      <Benefits />
       <Testimonial />
+      <Solutions />
       <Pricing />
       <Steps />
       <ShortAbout />

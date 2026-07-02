@@ -1,7 +1,6 @@
 // components/HomePage/Target.tsx
 import { Check } from "lucide-react";
 import Section from "../UI/Section";
-import SectionDivider from "../UI/SectionDivider";
 
 export default function Target() {
   const points = [
@@ -14,7 +13,7 @@ export default function Target() {
   ];
 
   return (
-    <Section id="offre" className="opacity-100">
+    <Section className="opacity-100">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-12">
           Vous êtes au bon endroit si...
@@ -31,7 +30,6 @@ export default function Target() {
           ))}
         </ul>
       </div>
-      <SectionDivider />
     </Section>
   );
 }

@@ -23,6 +23,10 @@
 
  @layer base {
 
+   html {
+     scroll-behavior: smooth;
+   }
+
    body {
      background: var(--background);
      color: var(--foreground);
@@ -107,6 +111,26 @@
 
  .animate-fade-in {
    opacity: 1;
+ }
+
+ /* Carrousel autodéfilant (marquee) — le contenu est dupliqué, translateX(-50% - moitié du gap) pour une boucle sans couture (gap = 1.5rem) */
+ @keyframes marquee {
+   from {
+     transform: translateX(0);
+   }
+   to {
+     transform: translateX(calc(-50% - 0.75rem));
+   }
+ }
+
+ .animate-marquee {
+   animation: marquee 45s linear infinite;
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+   .animate-marquee {
+     animation: none;
+   }
  }
 
  /* globals.css */

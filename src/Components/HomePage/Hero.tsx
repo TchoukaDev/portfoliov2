@@ -1,6 +1,6 @@
-"use client";
 // components/Hero.tsx
 
+import Link from "next/link";
 import { MessagesSquare, Clock } from "lucide-react";
 import Button from "../UI/Button";
 import SectionDivider from "../UI/SectionDivider";
@@ -34,8 +34,14 @@ export default function Hero() {
       </div>
 
       <h1 className="relative text-4xl md:text-6xl font-bold text-white mb-6 md:mb-0">
-        Attirez vos futurs clients avec un site web qui met en valeur votre
-        expertise
+        <span className="bg-linear-to-r from-white to-blue-400 bg-clip-text text-transparent">
+          Attirez
+        </span>{" "}
+        vos futurs clients avec un site web qui{" "}
+        <span className="bg-linear-to-r from-white to-blue-400 bg-clip-text text-transparent">
+          met en valeur
+        </span>{" "}
+        votre expertise
       </h1>
 
       <p className="relative text-lg md:text-xl text-gray-400 max-w-2xl mb-6 md:mb-0">
@@ -57,22 +63,15 @@ export default function Hero() {
       </div>
 
       {/* CTA + réassurance discrète */}
-      <div className="relative flex flex-col items-center gap-3">
-        <Button
-          onClick={(e: unknown) => {
-            if (e instanceof MouseEvent) {
-              e.preventDefault();
-            }
-
-            const target = document.getElementById("offre");
-            if (target) {
-              target.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-          variant="primary"
-        >
-          Découvrir mon offre ↓
-        </Button>
+      <div className="relative flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-4 sm:flex-row">
+          <Button asChild variant="primary">
+            <Link href="/contact">Demander un devis gratuit</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <a href="#offres">Voir mes offres</a>
+          </Button>
+        </div>
 
         <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-gray-500">
           {reassurance.map((item, i) => (

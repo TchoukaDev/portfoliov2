@@ -3,7 +3,7 @@ import { Slot } from "@radix-ui/react-slot";
 
 type ButtonProps = {
     children: React.ReactNode;
-    variant?: "primary" | "secondary";
+    variant?: "primary" | "secondary" | "outline";
     asChild?: boolean;
     className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
@@ -20,6 +20,7 @@ export default function Button({
     const variants = {
         primary: "bg-blue-600 hover:bg-blue-500 text-white",
         secondary: "bg-gray-800 hover:bg-gray-700 text-gray-300",
+        outline: "border border-blue-500/60 text-blue-300 hover:bg-blue-500/10 hover:border-blue-500",
     };
 
     const styles = `${baseStyles} ${variants[variant]} ${className}`;

@@ -3,6 +3,7 @@ import { Search, ShieldCheck, MousePointerClick, Clock } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
+import SectionDivider from "../UI/SectionDivider";
 
 const benefits = [
     {
@@ -57,6 +58,7 @@ export default function Benefits() {
                     ))}
                 </div>
             </Container>
+            <SectionDivider />
         </Section>
     );
 }

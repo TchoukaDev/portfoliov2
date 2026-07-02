@@ -34,7 +34,7 @@ const plans = [
 
 export default function Pricing() {
     return (
-        <Section>
+        <Section id="offres" className="scroll-mt-24">
             <Container size="lg">
                 <SectionHeader
                     title="Une offre adaptée à votre projet"

@@ -21,12 +21,12 @@ export default function ProjectsGrid() {
                             className="group block rounded-2xl border border-gray-800 overflow-hidden hover:border-blue-500/50 transition-all duration-300 hover:scale-102"
                         >
                             {/* Image */}
-                            <div className="relative h-48 bg-gray-800">
+                            <div className="relative aspect-[16/10] bg-gray-800">
                                 <Image
                                     src={project.image}
                                     alt={project.title}
                                     fill
-                                    className="object-cover transition-transform duration-300"
+                                    className="object-cover object-top transition-transform duration-300"
                                     loading="lazy"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 />
