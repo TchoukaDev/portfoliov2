@@ -127,6 +127,26 @@
    animation: marquee 45s linear infinite;
  }
 
+ /* Pause au survol (en CSS non-layered pour surpasser .animate-marquee) */
+ .animate-marquee:hover {
+   animation-play-state: paused;
+ }
+
+ /* Scrollbar fine et discrète pour le texte des témoignages */
+ .thin-scroll {
+   scrollbar-width: thin;
+   scrollbar-color: rgb(75 85 99) transparent;
+ }
+
+ .thin-scroll::-webkit-scrollbar {
+   width: 6px;
+ }
+
+ .thin-scroll::-webkit-scrollbar-thumb {
+   background-color: rgb(75 85 99);
+   border-radius: 9999px;
+ }
+
  @media (prefers-reduced-motion: reduce) {
    .animate-marquee {
      animation: none;

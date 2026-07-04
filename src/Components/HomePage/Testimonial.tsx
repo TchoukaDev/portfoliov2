@@ -74,7 +74,9 @@ function TestimonialCard({ quote, author, role, rating }: Testimonial) {
             />
           ))}
         </div>
-        <p className="italic text-gray-200 whitespace-pre-line">{quote}</p>
+        <p className="thin-scroll max-h-60 overflow-y-auto overscroll-contain whitespace-pre-line pr-2 italic text-gray-200">
+          {quote}
+        </p>
       </div>
 
       <div className="mt-6 flex items-center gap-3">
@@ -105,7 +107,7 @@ export default function Testimonial() {
             "linear-gradient(to right, transparent, #000 8%, #000 92%, transparent)",
         }}
       >
-        <div className="flex w-max gap-6 animate-marquee hover:[animation-play-state:paused]">
+        <div className="flex w-max gap-6 animate-marquee">
           <ul className="flex shrink-0 gap-6">
             {testimonials.map((t, i) => (
               <TestimonialCard key={i} {...t} />

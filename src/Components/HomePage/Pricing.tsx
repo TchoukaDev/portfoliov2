@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
-import SectionDivider from "../UI/SectionDivider";
 
 const plans = [
     {
@@ -75,7 +74,6 @@ export default function Pricing() {
                     le format le mieux adapté à votre activité.
                 </p>
             </Container>
-            <SectionDivider />
         </Section>
     );
 }

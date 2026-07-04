@@ -2,6 +2,7 @@ import Hero from "@/Components/HomePage/Hero";
 import Target from "@/Components/HomePage/Target";
 import Benefits from "@/Components/HomePage/Benefits";
 import Solutions from "@/Components/HomePage/Solutions";
+import Difference from "@/Components/HomePage/Difference";
 import RealisationsTeaser from "@/Components/HomePage/RealisationsTeaser";
 import Testimonial from "@/Components/HomePage/Testimonial";
 import Pricing from "@/Components/HomePage/Pricing";
@@ -41,6 +42,7 @@ export default function Home() {
       <Testimonial />
       <Solutions />
       <Pricing />
+      <Difference />
       <Steps />
       <ShortAbout />
       <FAQ />

@@ -1,5 +1,5 @@
 // components/HomePage/Solutions.tsx
-import { Check, KeyRound } from "lucide-react";
+import { Check } from "lucide-react";
 import Section from "../UI/Section";
 import Container from "../UI/Container";
 import SectionHeader from "../UI/SectionHeader";
@@ -16,9 +16,9 @@ const inclusions = [
       "Parfaitement adapté à l'ordinateur, la tablette et le mobile.",
   },
   {
-    title: "Optimisé pour Google",
+    title: "Référencement naturel",
     description:
-      "Structure et performances au service de votre référencement local.",
+      "Structure du site et métadonnées pensées pour Google et le référencement local",
   },
   {
     title: "Rapide et performant",
@@ -32,7 +32,7 @@ const inclusions = [
   {
     title: "Formation à la prise en main",
     description:
-      "Je vous montre comment modifier vos textes et vos images pour faire vivre votre site",
+      "Je vous montre comment modifier vos textes et vos images pour faire vivre votre site.",
   },
 ];
 
@@ -59,24 +59,6 @@ export default function Solutions() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Argument principal : la propriété */}
-        <div className="mt-10 flex flex-col items-start gap-4 rounded-2xl border border-blue-500/40 bg-blue-500/10 p-6 sm:flex-row sm:items-center">
-          <span className="shrink-0 rounded-xl bg-blue-500/20 p-3 text-blue-400">
-            <KeyRound size={24} />
-          </span>
-          <div>
-            <h3 className="mb-1 text-lg font-semibold text-white">
-              Vous restez 100 % propriétaire
-            </h3>
-            <p className="text-sm text-gray-300">
-              Le code, le nom de domaine et l&apos;hébergement sont à vous, à
-              votre nom. Je m&apos;occupe uniquement de la configuration et de
-              la maintenance : aucune dépendance, vous gardez la main sur votre
-              site.
-            </p>
-          </div>
         </div>
       </Container>
     </Section>
