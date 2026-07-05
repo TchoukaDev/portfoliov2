@@ -132,6 +132,22 @@
    animation-play-state: paused;
  }
 
+ @media (prefers-reduced-motion: reduce) {
+   .animate-marquee {
+     animation: none;
+   }
+ }
+
+ /* Masque la scrollbar du carrousel de témoignages (le swipe/scroll reste actif) */
+ .no-scrollbar {
+   scrollbar-width: none;
+   -ms-overflow-style: none;
+ }
+
+ .no-scrollbar::-webkit-scrollbar {
+   display: none;
+ }
+
  /* Scrollbar fine et discrète pour le texte des témoignages */
  .thin-scroll {
    scrollbar-width: thin;
@@ -145,12 +161,6 @@
  .thin-scroll::-webkit-scrollbar-thumb {
    background-color: rgb(75 85 99);
    border-radius: 9999px;
- }
-
- @media (prefers-reduced-motion: reduce) {
-   .animate-marquee {
-     animation: none;
-   }
  }
 
  /* globals.css */
