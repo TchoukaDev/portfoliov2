@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sendMail, SendMailResponse } from "@/actions/sendMail";
 import {
   sendMailSchema,
@@ -26,6 +26,7 @@ const errorClass = "formError text-left";
 export default function ContactForm() {
   const [serverState, setServerState] = useState<SendMailResponse | null>(null);
   const [isPending, setIsPending] = useState<boolean>(false);
+  const formStartTime = useRef<number>(Date.now());
 
   const showForm = !serverState?.success;
 
@@ -47,6 +48,7 @@ export default function ContactForm() {
     Object.entries(data).forEach(([key, value]) => {
       if (value !== undefined && value !== null) formData.append(key, String(value));
     });
+    formData.append("_t", String(formStartTime.current));
 
     const result = await sendMail(null, formData);
 
@@ -100,6 +102,16 @@ export default function ContactForm() {
       noValidate
       className="mx-auto flex max-w-xl flex-col gap-6 rounded-2xl border border-gray-800 bg-gray-900/40 p-6 md:p-8"
     >
+      {/* Honeypot anti-spam — invisible pour les humains */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        className="absolute -left-[9999px] opacity-0 pointer-events-none"
+      />
+
       {/* Prénom + Nom */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="relative">
@@ -152,33 +164,34 @@ export default function ContactForm() {
         )}
       </div>
 
-      {/* Type de projet + Échéance */}
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <div className="relative">
-          <select
-            id="projectType"
-            className={selectClass}
-            defaultValue=""
-            aria-invalid={fieldError("projectType") ? "true" : "false"}
-            {...register("projectType")}
-          >
-            <option value="" className="bg-gray-900 text-gray-300">
-              Sélectionnez…
+      {/* Type de projet */}
+      <div className="relative">
+        <select
+          id="projectType"
+          className={selectClass}
+          defaultValue=""
+          aria-invalid={fieldError("projectType") ? "true" : "false"}
+          {...register("projectType")}
+        >
+          <option value="" className="bg-gray-900 text-gray-300">
+            Sélectionnez…
+          </option>
+          {projectTypes.map((type) => (
+            <option key={type} value={type} className="bg-gray-900 text-gray-200">
+              {type}
             </option>
-            {projectTypes.map((type) => (
-              <option key={type} value={type} className="bg-gray-900 text-gray-200">
-                {type}
-              </option>
-            ))}
-          </select>
-          <label htmlFor="projectType" className={staticLabelClass}>
-            Type de projet*
-          </label>
-          {fieldError("projectType") && (
-            <p className={errorClass} role="alert">{fieldError("projectType")}</p>
-          )}
-        </div>
+          ))}
+        </select>
+        <label htmlFor="projectType" className={staticLabelClass}>
+          Type de projet*
+        </label>
+        {fieldError("projectType") && (
+          <p className={errorClass} role="alert">{fieldError("projectType")}</p>
+        )}
+      </div>
 
+      {/* Échéance */}
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
         <div className="relative">
           <select
             id="deadline"

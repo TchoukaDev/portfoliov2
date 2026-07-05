@@ -1,5 +1,6 @@
 "use server";
 import ContactEmail from "@/Components/ContactPage/ContactEmail";
+import AutoReplyEmail from "@/Components/ContactPage/AutoReplyEmail";
 import { sendMailSchema } from "@/lib/zod-schemas";
 import { render } from "@react-email/render";
 import { Resend } from "resend";
@@ -11,13 +12,12 @@ export interface SendMailResponse {
   error?: string;
 }
 
-// Créer l'instance de resend
 const resend = new Resend(process.env.RESEND_API_KEY);
+
 export const sendMail = async (prevState: SendMailResponse | null, formData: FormData): Promise<SendMailResponse> => {
   const standardError = "Veuillez corriger les champs dans le formulaire";
 
   try {
-    // Guard : Vérifier que les variables d'environnement sont définies
     if (!process.env.RESEND_API_KEY || !process.env.EMAIL_TO) {
       console.error("Erreur : RESEND_API_KEY ou EMAIL_TO non définis");
       return {
@@ -26,7 +26,19 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
       };
     }
 
-    // Extraire les données du FormData
+    // Honeypot : les bots remplissent ce champ, les humains non
+    const honeypot = formData.get("website");
+    if (honeypot) {
+      // On simule un succès pour ne pas alerter le bot
+      return { success: true, message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite." };
+    }
+
+    // Time check : un humain met au moins 3 secondes à remplir le formulaire
+    const formStartTime = Number(formData.get("_t"));
+    if (formStartTime && Date.now() - formStartTime < 3000) {
+      return { success: true, message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite." };
+    }
+
     const rawData = {
       firstname: formData.get("firstname"),
       name: formData.get("name"),
@@ -36,69 +48,58 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
       deadline: formData.get("deadline") || undefined,
       message: formData.get("message"),
     };
-    // Validation Zod
+
     const validationResult = sendMailSchema.safeParse(rawData);
 
-    // Formattage des erreur Zod
     if (validationResult.error) {
       const fieldErrors: Record<string, string> = {};
       validationResult.error.issues.forEach((issue) => {
         const fieldName = issue.path[0];
-        const errorMessage = issue.message;
-        fieldErrors[typeof fieldName === 'string' ? fieldName : ''] = errorMessage;
+        fieldErrors[typeof fieldName === "string" ? fieldName : ""] = issue.message;
       });
-
-      return {
-        success: false,
-        error: standardError,
-        fieldErrors: fieldErrors,
-      };
+      return { success: false, error: standardError, fieldErrors };
     }
 
     const validatedData = validationResult.data;
 
-    const emailHtml = await render(
-      ContactEmail({
-        firstname: validatedData.firstname,
-        name: validatedData.name,
-        email: validatedData.email,
-        projectType: validatedData.projectType,
-        activity: validatedData.activity,
-        deadline: validatedData.deadline,
-        message: validatedData.message,
+    const [notifHtml, replyHtml] = await Promise.all([
+      render(ContactEmail({ ...validatedData })),
+      render(AutoReplyEmail({ firstname: validatedData.firstname })),
+    ]);
+
+    const [notifResult, replyResult] = await Promise.all([
+      resend.emails.send({
+        from: "Formulaire de Contact <contact@romainwirth.fr>",
+        to: [process.env.EMAIL_TO],
+        replyTo: validatedData.email,
+        subject: `Nouveau message de ${validatedData.firstname} ${validatedData.name}`,
+        html: notifHtml,
       }),
-    );
+      resend.emails.send({
+        from: "Romain Wirth <contact@romainwirth.fr>",
+        to: [validatedData.email],
+        subject: "J'ai bien reçu votre message",
+        html: replyHtml,
+      }),
+    ]);
 
-    // 5. Envoyer l'email avec Resend
-    const { error } = await resend.emails.send({
-      from: "Formulaire de Contact <contact@romainwirth.fr>",
-      to: [process.env.EMAIL_TO],
-      replyTo: validatedData.email,
-      subject: `Nouveau message de ${validatedData.firstname} ${validatedData.name}`,
-      html: emailHtml, // ✅ HTML généré depuis React Email
-    });
-
-    // 5. Gérer les erreurs d'envoi
-    if (error) {
-      console.error("Erreur lors de l'envoi de l'email:", error);
+    if (notifResult.error || replyResult.error) {
+      console.error("Erreur lors de l'envoi des emails:", notifResult.error, replyResult.error);
       return {
         success: false,
         error: "Impossible d'envoyer l'email. Veuillez réessayer plus tard.",
       };
     }
 
-    // 6. Retourner le succès
     return {
       success: true,
-      message:
-        "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
+      message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
     };
   } catch (e) {
     console.error(e);
     return {
       success: false,
-      error:
-        "Une erreur est survenue côté serveur. Veuillez rééssayer plus tard.",
+      error: "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
     };
   }
 };

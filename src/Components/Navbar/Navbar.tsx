@@ -83,7 +83,7 @@ export default function Navbar({ isLoggedIn, isAdmin }: { isLoggedIn: boolean; i
                                 : "bg-blue-600 hover:bg-blue-500 text-white"
                                 }`}
                         >
-                            Contact
+                            Devis gratuit
                         </Link>
                     </div>
 
@@ -153,7 +153,7 @@ export default function Navbar({ isLoggedIn, isAdmin }: { isLoggedIn: boolean; i
                             : "bg-blue-600 hover:bg-blue-500 text-white border border-gray-300"
                             }`}
                     >
-                        Contact
+                        Devis gratuit
                     </Link>
                 </div>
             </div>

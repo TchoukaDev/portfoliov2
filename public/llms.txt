@@ -1,0 +1,29 @@
+# Romain Wirth — Développeur web freelance
+
+> Romain Wirth est développeur web freelance basé à Nogent (Haute-Marne, 52). Il crée des sites web professionnels pour artisans, indépendants et petites entreprises — en Haute-Marne (Nogent, Chaumont, Langres) et partout en France à distance.
+
+## Pages principales
+
+- [Accueil](https://romainwirth.fr/): Présentation des offres de création de sites web, tarifs et processus
+- [Réalisations](https://romainwirth.fr/realisations): Portfolio de projets réalisés pour des clients
+- [À propos](https://romainwirth.fr/a-propos): Présentation de Romain Wirth, parcours et valeurs
+- [Contact](https://romainwirth.fr/contact): Formulaire de contact et demande de devis gratuit
+
+## Services proposés
+
+- Création de sites vitrines (one page, multi-pages)
+- Refonte de sites existants
+- Accompagnement à la création (mode "done with you")
+- Rédaction des contenus incluse
+- Référencement local (SEO)
+- Maintenance et mises à jour
+
+## Zone d'intervention
+
+Nogent-en-Bassigny, Chaumont, Langres, Haute-Marne (52), et toute la France à distance.
+
+## Contact
+
+- Téléphone : 06 83 76 69 89
+- Email : contact@romainwirth.fr
+- Site : https://romainwirth.fr

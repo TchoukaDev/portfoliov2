@@ -2,12 +2,10 @@ import { z } from "zod";
 
 // Options de qualification du projet (réutilisées par le formulaire et l'email).
 export const projectTypes = [
-  "Landing page / page unique",
-  "Site vitrine",
-  "Site + blog",
-  "Boutique en ligne (e-commerce)",
+  "Création de site",
   "Refonte de site existant",
-  "Je ne sais pas encore",
+  "Accompagnement à la création",
+  "Autre / Je ne sais pas",
 ] as const;
 
 export const deadlines = [

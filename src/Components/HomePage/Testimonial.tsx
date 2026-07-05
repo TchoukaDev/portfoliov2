@@ -1,7 +1,5 @@
-import Link from "next/link";
 import { Star } from "lucide-react";
 import Section from "../UI/Section";
-import Button from "../UI/Button";
 
 type Testimonial = {
   quote: string;
@@ -121,11 +119,6 @@ export default function Testimonial() {
         </div>
       </div>
 
-      <div className="mt-12 text-center">
-        <Button asChild>
-          <Link href="/contact">Lancez votre projet</Link>
-        </Button>
-      </div>
     </Section>
   );
 }

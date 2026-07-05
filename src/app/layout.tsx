@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s | Romain Wirth",
   },
   description:
-    "Romain Wirth, développeur web freelance en Haute-Marne. Création de sites web pour artisans, indépendants et petites entreprises. WordPress ou sur mesure, adapté à votre budget.",
+    "Romain Wirth, développeur web freelance en Haute-Marne. Création de sites web pour artisans, indépendants et petites entreprises à Nogent, Chaumont, Langres et partout en France.",
   keywords: [
     "Romain Wirth",
     "développeur web freelance",
@@ -52,10 +52,11 @@ export const metadata: Metadata = {
     "artisan",
     "indépendant",
     "petite entreprise",
-    "WordPress",
     "Haute-Marne",
     "Nogent",
     "Chaumont",
+    "Langres",
+    "52",
   ],
   openGraph: {
     title: "Romain Wirth — Développeur web freelance",
@@ -92,6 +93,32 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Romain Wirth — Développeur web freelance",
+  url: "https://romainwirth.fr",
+  telephone: "+33683766989",
+  email: "contact@romainwirth.fr",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Nogent",
+    addressRegion: "Haute-Marne",
+    postalCode: "52800",
+    addressCountry: "FR",
+  },
+  areaServed: [
+    { "@type": "City", name: "Nogent" },
+    { "@type": "City", name: "Chaumont" },
+    { "@type": "City", name: "Langres" },
+    { "@type": "AdministrativeArea", name: "Haute-Marne" },
+  ],
+  description:
+    "Création de sites web professionnels pour artisans, indépendants et petites entreprises en Haute-Marne et partout en France.",
+  priceRange: "€€",
+  knowsLanguage: "fr",
+};
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const session = await auth();
   const isLoggedIn = !!session?.user;
@@ -101,6 +128,10 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="fr" className={`${raleway.variable} ${dmSans.variable}`}>
       <body className="relative flex flex-col justify-center font-raleway min-h-screen cursor-default">
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
         <Navbar isLoggedIn={isLoggedIn} isAdmin={isAdmin} />
         {children}
         <Footer />
