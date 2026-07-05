@@ -21,13 +21,14 @@ const inclusions = [
       "Structure du site et métadonnées pensées pour Google et le référencement local",
   },
   {
-    title: "Rapide et performant",
+    title: "Rapide performant et sécurisé",
     description:
-      "Un site léger, conçu sur mesure, qui se charge en un instant.",
+      "Un site léger, conçu sur mesure, qui se charge en un instant avec des pratiques de sécurité respectées.",
   },
   {
-    title: "Sécurisé",
-    description: "Bonnes pratiques de sécurité et connexion HTTPS.",
+    title: "Des textes travaillés",
+    description:
+      "À partir des informations que vous me donnez, je rédige les textes pour les rendre ciblés et impactants. Je propose et vous validez.",
   },
   {
     title: "Formation à la prise en main",
