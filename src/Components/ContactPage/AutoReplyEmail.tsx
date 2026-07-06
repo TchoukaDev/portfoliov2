@@ -13,9 +13,13 @@ import {
 
 type AutoReplyEmailProps = {
   firstname: string;
+  name: string;
 };
 
-export default function AutoReplyEmail({ firstname }: AutoReplyEmailProps) {
+export default function AutoReplyEmail({
+  firstname,
+  name,
+}: AutoReplyEmailProps) {
   return (
     <Html lang="fr">
       <Head />
@@ -35,12 +39,11 @@ export default function AutoReplyEmail({ firstname }: AutoReplyEmailProps) {
             {/* Body */}
             <Section className="bg-white px-10 py-8">
               <Text className="text-slate-800 text-base leading-relaxed mt-0">
-                Bonjour {firstname},
+                Bonjour {firstname} {name},
               </Text>
               <Text className="text-slate-700 text-sm leading-relaxed">
                 Merci pour votre message. Je l&apos;ai bien reçu et je vous
-                recontacterai dans les plus brefs délais (en général sous 24 à
-                48h).
+                recontacterai dans les plus brefs délais.
               </Text>
               <Text className="text-slate-700 text-sm leading-relaxed">
                 En attendant, n&apos;hésitez pas à consulter mes réalisations

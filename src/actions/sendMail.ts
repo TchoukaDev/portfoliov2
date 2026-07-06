@@ -14,7 +14,10 @@ export interface SendMailResponse {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export const sendMail = async (prevState: SendMailResponse | null, formData: FormData): Promise<SendMailResponse> => {
+export const sendMail = async (
+  prevState: SendMailResponse | null,
+  formData: FormData,
+): Promise<SendMailResponse> => {
   const standardError = "Veuillez corriger les champs dans le formulaire";
 
   try {
@@ -30,13 +33,21 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
     const honeypot = formData.get("website");
     if (honeypot) {
       // On simule un succès pour ne pas alerter le bot
-      return { success: true, message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite." };
+      return {
+        success: true,
+        message:
+          "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
+      };
     }
 
     // Time check : un humain met au moins 3 secondes à remplir le formulaire
     const formStartTime = Number(formData.get("_t"));
     if (formStartTime && Date.now() - formStartTime < 3000) {
-      return { success: true, message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite." };
+      return {
+        success: true,
+        message:
+          "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
+      };
     }
 
     const rawData = {
@@ -55,7 +66,8 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
       const fieldErrors: Record<string, string> = {};
       validationResult.error.issues.forEach((issue) => {
         const fieldName = issue.path[0];
-        fieldErrors[typeof fieldName === "string" ? fieldName : ""] = issue.message;
+        fieldErrors[typeof fieldName === "string" ? fieldName : ""] =
+          issue.message;
       });
       return { success: false, error: standardError, fieldErrors };
     }
@@ -64,7 +76,12 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
 
     const [notifHtml, replyHtml] = await Promise.all([
       render(ContactEmail({ ...validatedData })),
-      render(AutoReplyEmail({ firstname: validatedData.firstname })),
+      render(
+        AutoReplyEmail({
+          firstname: validatedData.firstname,
+          name: validatedData.name,
+        }),
+      ),
     ]);
 
     const [notifResult, replyResult] = await Promise.all([
@@ -84,7 +101,11 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
     ]);
 
     if (notifResult.error || replyResult.error) {
-      console.error("Erreur lors de l'envoi des emails:", notifResult.error, replyResult.error);
+      console.error(
+        "Erreur lors de l'envoi des emails:",
+        notifResult.error,
+        replyResult.error,
+      );
       return {
         success: false,
         error: "Impossible d'envoyer l'email. Veuillez réessayer plus tard.",
@@ -93,13 +114,15 @@ export const sendMail = async (prevState: SendMailResponse | null, formData: For
 
     return {
       success: true,
-      message: "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
+      message:
+        "Votre message a été envoyé avec succès ! Je reviens vers vous au plus vite.",
     };
   } catch (e) {
     console.error(e);
     return {
       success: false,
-      error: "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
+      error:
+        "Une erreur est survenue côté serveur. Veuillez réessayer plus tard.",
     };
   }
 };
