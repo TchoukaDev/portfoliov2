@@ -76,7 +76,7 @@ const faqSchema = {
 };
 
 export const metadata: Metadata = {
-  title: "Romain Wirth — Création de sites web freelance",
+  title: "Romain Wirth — Création de sites web Haute-Marne",
   description:
     "Romain Wirth, développeur web freelance en Haute-Marne. Je crée des sites web professionnels pour artisans, indépendants et petites entreprises. WordPress ou sur mesure.",
   keywords: [
