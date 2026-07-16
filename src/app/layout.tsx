@@ -1,12 +1,11 @@
-
 import "./globals.css";
 
 import localFont from "next/font/local";
 import { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
 import Navbar from "@/Components/Navbar/Navbar";
 import Footer from "@/Components/Footer/Footer";
 import { auth } from "@/auth";
+import Script from "next/script";
 
 export const dmSans = localFont({
   src: [
@@ -35,7 +34,6 @@ const raleway = localFont({
   display: "swap",
   variable: "--font-raleway",
 });
-
 
 export const metadata: Metadata = {
   title: {
@@ -119,7 +117,11 @@ const localBusinessSchema = {
   knowsLanguage: "fr",
 };
 
-export default async function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const session = await auth();
   const isLoggedIn = !!session?.user;
   const isAdmin = session?.user?.isAdmin === true;
@@ -127,15 +129,20 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="fr" className={`${raleway.variable} ${dmSans.variable}`}>
       <body className="relative flex flex-col justify-center font-raleway min-h-screen cursor-default">
-
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessSchema),
+          }}
+        />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id="de551eb7-6b27-4e9a-b42a-21cecb395857"
+          strategy="afterInteractive"
         />
         <Navbar isLoggedIn={isLoggedIn} isAdmin={isAdmin} />
         {children}
         <Footer />
-        <Analytics />
       </body>
     </html>
   );
